@@ -27,6 +27,7 @@ async def download_file(url, dest):
 
 async def setup_learner():
     await download_file(model_file_url, path/'models'/f'{model_file_name}.pth')
+    defaults.device = torch.device('cpu')
     data_bunch = ImageDataBunch.single_from_classes(path, classes,
         tfms=get_transforms(), size=224).normalize(imagenet_stats)
     learn = create_cnn(data_bunch, models.resnet34, pretrained=False)
