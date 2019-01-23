@@ -8,7 +8,9 @@ from io import BytesIO
 from fastai import *
 from fastai.vision import *
 
-model_file_url = 'https://www.dropbox.com/s/y4kl2gv1akv7y4i/stage-2.pth?raw=1'
+defaults.device = torch.device('cpu')
+
+model_file_url = 'https://drive.google.com/uc?export=download&id=1VwEux-UpVGRsy_ui00rJiMzpMD09eLxV'
 model_file_name = 'model'
 
 classes = ['black', 'grizzly', 'teddys']
@@ -26,12 +28,8 @@ async def download_file(url, dest):
             with open(dest, 'wb') as f: f.write(data)
 
 async def setup_learner():
-    await download_file(model_file_url, path/'models'/f'{model_file_name}.pth')
-    defaults.device = torch.device('cpu')
-    data_bunch = ImageDataBunch.single_from_classes(path, classes,
-        tfms=get_transforms(), size=224).normalize(imagenet_stats)
-    learn = create_cnn(data_bunch, models.resnet34, pretrained=False)
-    learn.load(model_file_name)
+    await download_file(model_file_url, path/'models'/f'{model_file_name}.pkl')
+    learn = load_learner(path / 'models', f'{model_file_name}.pkl')
     return learn
 
 loop = asyncio.get_event_loop()
