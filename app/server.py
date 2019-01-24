@@ -8,8 +8,6 @@ from io import BytesIO
 from fastai import *
 from fastai.vision import *
 
-defaults.device = torch.device('cpu')
-
 export_file_url = 'https://drive.google.com/uc?export=download&id=1VwEux-UpVGRsy_ui00rJiMzpMD09eLxV'
 export_file_name = 'export.pkl'
 
@@ -52,4 +50,3 @@ async def analyze(request):
 
 if __name__ == '__main__':
     if 'serve' in sys.argv: uvicorn.run(app=app, host='0.0.0.0', port=5042)
-
