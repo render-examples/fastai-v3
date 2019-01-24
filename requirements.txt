@@ -1,6 +1,7 @@
--f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html
-torch_nightly
 numpy
+torchvision_nightly
+torch_nightly
+-f https://download.pytorch.org/whl/nightly/cpu/torch_nightly.html
 git+git://github.com/fastai/fastai.git@9835e1805d0f9609c28a3258200e2824240e3deb#egg=fastai
 starlette
 uvicorn
