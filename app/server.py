@@ -10,8 +10,8 @@ from fastai.vision import *
 
 defaults.device = torch.device('cpu')
 
-model_file_url = 'https://drive.google.com/uc?export=download&id=1VwEux-UpVGRsy_ui00rJiMzpMD09eLxV'
-model_file_name = 'model'
+export_file_url = 'https://drive.google.com/uc?export=download&id=1VwEux-UpVGRsy_ui00rJiMzpMD09eLxV'
+export_file_name = 'export.pkl'
 
 classes = ['black', 'grizzly', 'teddys']
 path = Path(__file__).parent
@@ -28,8 +28,8 @@ async def download_file(url, dest):
             with open(dest, 'wb') as f: f.write(data)
 
 async def setup_learner():
-    await download_file(model_file_url, path/'models'/f'{model_file_name}.pkl')
-    learn = load_learner(path / 'models', f'{model_file_name}.pkl', cpu=True)
+    await download_file(export_file_url, path/export_file_name)
+    learn = load_learner(path, export_file_name, cpu=True)
     return learn
 
 loop = asyncio.get_event_loop()
