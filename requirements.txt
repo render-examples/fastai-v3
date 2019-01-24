@@ -1,7 +1,7 @@
 numpy
 torchvision
 https://download.pytorch.org/whl/cpu/torch-1.0.0-cp37-cp37m-linux_x86_64.whl
-git+git://github.com/fastai/fastai.git#egg=fastai
+fastai
 starlette
 uvicorn
 python-multipart
