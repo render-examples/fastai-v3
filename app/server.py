@@ -9,7 +9,7 @@ from pathlib import Path
 from fastai import *
 from fastai.vision import *
 
-export_file_url = 'https://www.dropbox.com/s/b846kz8n911586z/stage-1-e16-0.06941.pth?raw=1'
+export_file_url = 'https://www.dropbox.com/s/jyoruifmgtwf5go/export.pkl?raw=1'
 export_file_name = 'export.pkl'
 
 path = Path(__file__).parent
@@ -57,7 +57,7 @@ async def analyze(request):
     img_bytes = await (data['file'].read())
     img = open_image(BytesIO(img_bytes))
     prediction = learn.predict(img)[0]
-    return JSONResponse({'result': str(prediction)})
+    return JSONResponse({'result': str(classes[int(prediction)])})
 
 if __name__ == '__main__':
     if 'serve' in sys.argv: uvicorn.run(app=app, host='0.0.0.0', port=5042)
