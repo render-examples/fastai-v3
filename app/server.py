@@ -47,7 +47,8 @@ loop.close()
 @app.route('/')
 def index(request):
     html = path/'view'/'index.html'
-    return HTMLResponse(html.open().read())
+    file = open(html, encoding="latin1")
+    return HTMLResponse(html.file.read())
 
 @app.route('/analyze', methods=['POST'])
 async def analyze(request):
