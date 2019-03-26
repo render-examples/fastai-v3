@@ -46,8 +46,9 @@ loop.close()
 
 @app.route('/')
 def index(request):
-    html = path/'view'/'index.html'
-    return HTMLResponse(html.open().read())
+    
+    return HTMLResponse("Hello Pranav. I am a hungry API. I am craving your algorithm :P.")
+
 
 @app.route('/analyze', methods=['POST'])
 async def analyze(request):
@@ -56,6 +57,27 @@ async def analyze(request):
     img = open_image(BytesIO(img_bytes))
     prediction = learn.predict(img)[0]
     return JSONResponse({'result': str(prediction)})
+
+
+
+def predict(text):
+    return 'Sports'
+
+#request from react
+@app.route('/getCategory', methods=['GET', 'POST'])
+async def postArticleText(request):
+ if request.method == 'GET':
+
+    text = request.query_params['text']
+    category = callMLAlgo(text)
+    return JSONResponse({'category' : category})
+
+def callMLAlgo(text):
+    category = predict(text)
+    return category
+
+
+    
 
 if __name__ == '__main__':
     if 'serve' in sys.argv: uvicorn.run(app=app, host='0.0.0.0', port=5042)
