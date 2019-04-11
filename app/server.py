@@ -9,8 +9,8 @@ from fastai import *
 from fastai.vision import *
 
 # export_file_url = 'https://www.dropbox.com/s/v6cuuvddq73d1e0/export.pkl?raw=1'
-export_file_url = 'https://www.hongkonghustle.com/dimsum.pkl'
-export_file_name = 'dimsum.pkl'
+export_file_url = 'https://www.hongkonghustle.com/NEWdimsum.pkl'
+export_file_name = 'NEWdimsum.pkl'
 
 classes = ['baked_crispy_bun_with_bbq_pork', 'baked_pork_bun_glazed', 'beef_ball', 'beef_tripe', 'char_siu_bao', 'char_siu_cheung', 'cheung_fan', 'chicken_feet', 'curry_squid', 'dja_leung', 'egg_tart', 'fish_ball', 'fu_pei_guen', 'fun_gor', 'ha_cheung', 'ham_sui_gok', 'har_gow', 'honey_comb_tripe', 'lo_bak_go', 'lo_mai_gai', 'ma_lai_gao', 'mango_pudding', 'nai_wong_bao', 'osmanthus_jelly', 'pai_gwat', 'pan_fried_pork_bun', 'pork_puffs', 'potstickers', 'quails_egg_siumai', 'radish_puff', 'scallop_dumpling', 'sesame_ball', 'shark_fun_dumpling', 'siu_mai', 'spring_roll', 'stuffed_eggplant', 'tang_yuan_dessert', 'three_treasures', 'water_chestnut_cake', 'wu_gok', 'xiao_long_bao']
 path = Path(__file__).parent
