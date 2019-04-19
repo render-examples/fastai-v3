@@ -63,8 +63,6 @@ async def analyze(request):
 
 
 
-def predict(text):
-    return 'Sports'
 
 #request from react
 @app.route('/getCategory', methods=['GET', 'POST'])
