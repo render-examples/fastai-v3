@@ -6,11 +6,14 @@ import uvicorn, aiohttp, asyncio
 from io import BytesIO
 
 from fastai import *
-from fastai.vision import *
+
+from fastai.text import *
+
+
 
 # export_file_url = 'https://www.dropbox.com/s/v6cuuvddq73d1e0/export.pkl?raw=1'
-export_file_url = 'https://www.dropbox.com/s/6bgq8t6yextloqp/export.pkl?raw=1'
-export_file_name = 'export.pkl'
+export_file_url = 'https://drive.google.com/uc?export=download&confirm=Kt8o&id=1RRlzjI6_1EKso7MlYQsYMr8Gvb8ofybz'
+export_file_name = 'export_clas.pkl'
 
 classes = ['black', 'grizzly', 'teddys']
 path = Path(__file__).parent
@@ -47,7 +50,7 @@ loop.close()
 @app.route('/')
 def index(request):
     
-    return HTMLResponse("Hello Pranav. I am a hungry API. I am craving your algorithm :P.")
+    return HTMLResponse(category)
 
 
 @app.route('/analyze', methods=['POST'])
@@ -73,7 +76,8 @@ async def postArticleText(request):
     return JSONResponse({'category' : category})
 
 def callMLAlgo(text):
-    category = predict(text)
+    learn = load_learner(fname = 'export_clas.pkl')
+    category = learn.predict('Can please Nick at least look at fastai inference manuals?')
     return category
 
 
