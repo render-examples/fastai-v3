@@ -51,16 +51,16 @@ loop.close()
 @app.route('/')
 def index(request):
     
-    return HTMLResponse(category)
+    return HTMLResponse('check the post response for result')
 
 
-@app.route('/analyze', methods=['POST'])
-async def analyze(request):
-    data = await request.form()
-    img_bytes = await (data['file'].read())
-    img = open_image(BytesIO(img_bytes))
-    prediction = learn.predict(img)[0]
-    return JSONResponse({'result': str("check the post request for result")})
+# @app.route('/analyze', methods=['POST'])
+# async def analyze(request):
+#     data = await request.form()
+#     img_bytes = await (data['file'].read())
+#     img = open_image(BytesIO(img_bytes))
+#     prediction = learn.predict(img)[0]
+#     return JSONResponse({'result': str("check the post request for result")})
 
 
 
