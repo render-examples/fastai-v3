@@ -12,10 +12,10 @@ from fastai.text import *
 
 
 # export_file_url = 'https://www.dropbox.com/s/v6cuuvddq73d1e0/export.pkl?raw=1'
-export_file_url = 'https://drive.google.com/uc?export=download&confirm=Kt8o&id=1RRlzjI6_1EKso7MlYQsYMr8Gvb8ofybz'
-export_file_name = 'export_clas.pkl'
+export_file_url = 'https://www.dropbox.com/s/eb3we0qoq4rs4gx/export.pkl?dl=1'
+export_file_name = 'export.pkl'
 
-classes = ['black', 'grizzly', 'teddys']
+
 path = Path(__file__).parent
 
 app = Starlette()
@@ -32,8 +32,9 @@ async def download_file(url, dest):
 async def setup_learner():
     await download_file(export_file_url, path/export_file_name)
     try:
-        learn = load_learner(path, export_file_name)
+        learn = load_learner(path = path, file = export_file_name)
         return learn
+
     except RuntimeError as e:
         if len(e.args) > 0 and 'CPU-only machine' in e.args[0]:
             print(e)
@@ -59,7 +60,7 @@ async def analyze(request):
     img_bytes = await (data['file'].read())
     img = open_image(BytesIO(img_bytes))
     prediction = learn.predict(img)[0]
-    return JSONResponse({'result': str(prediction)})
+    return JSONResponse({'result': str("check the post request for result")})
 
 
 
@@ -67,15 +68,15 @@ async def analyze(request):
 #request from react
 @app.route('/getCategory', methods=['GET', 'POST'])
 async def postArticleText(request):
- if request.method == 'GET':
+    if request.method == 'GET':
 
-    text = request.query_params['text']
-    category = callMLAlgo(text)
+        text = request.query_params['text']
+        category = callMLAlgo(text)
     return JSONResponse({'category' : category})
 
 def callMLAlgo(text):
-    learn = load_learner(fname = 'export_clas.pkl')
-    category = learn.predict('Can please Nick at least look at fastai inference manuals?')
+    learn = load_learner(file = 'export_clas.pkl')
+    category = learn.predict(text)
     return category
 
 
