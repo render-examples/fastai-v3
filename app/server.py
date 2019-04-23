@@ -12,10 +12,10 @@ from fastai.text import *
 
 # export_file_url = 'https://www.dropbox.com/s/v6cuuvddq73d1e0/export.pkl?raw=1'
 #export_file_url = 'https://www.dropbox.com/s/dyaiznx8v8uljck/export.pkl?dl=1'
-export_file_url = "https://www.dropbox.com/s/xhnvw0axn6xjbk9/export.pkl?dl=1"
+export_file_url = "https://www.dropbox.com/s/8p84c4893hx726v/export.pkl?dl=1"
 export_file_name = 'export.pkl'
 
-classes = ['pol', 'bus', 'sports', 'ent', 'global','misc']
+classes = ["business", "law","lifestyle","rel-pol","sports","war","entertainment","misc","science","tech"]
 path = Path(__file__).parent
 
 app = Starlette()
@@ -27,7 +27,7 @@ async def download_file(url, dest):
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as response:
             data = await response.read()
-            with open(dest, 'wb') as f: f.write(data)
+            with open(dest, 'w') as f: f.write(data)
 
 async def setup_learner():
     await download_file(export_file_url, path/export_file_name)
@@ -47,40 +47,47 @@ loop = asyncio.get_event_loop()
 tasks = [asyncio.ensure_future(setup_learner())]
 learn = loop.run_until_complete(asyncio.gather(*tasks))[0]
 loop.close()
-print(learn)
+#print(learn)
 
 @app.route('/')
 def index(request):
     
     return HTMLResponse('check the post response for result')
 
-
-# @app.route('/analyze', methods=['POST'])
-# async def analyze(request):
-#     data = await request.form()
-#     img_bytes = await (data['file'].read())
-#     img = open_image(BytesIO(img_bytes))
-#     prediction = learn.predict(img)[0]
-#     return JSONResponse({'result': str("check the post request for result")})
+ 
+@app.route('/analyze', methods=['GET','POST'])
+async def analyze(request):
+    if request.method == 'GET':
+         
+#         text =data["text"]
+         text = request.query_params['text']
+         category = learn.predict(text)
+         #category = classify(text)
+    data = await request.json()
+    img = data["text"]
+    
+    prediction = learn.predict(img)
+    return JSONResponse({'category' : category})
 
 
 
 
 #request from react
-@app.route('/getCategory', methods=['GET', 'POST'])
-async def postArticleText(request):
-    if request.method == 'GET':
+# @app.route('/getCategory', methods=['GET', 'POST'])
+# async def postArticleText(request):
+#     if request.method == 'GET':
+#         #data = await request.json()
+#         #text =data["text"]
+#         text = request.query_params['text']
+#         #category = callMLAlgo('Can please Nick at least look at fastai inference manuals?')
+#         category = classify(text)
+#         #category = 'sports'
+#     return JSONResponse({'category' : category})
 
-        text = request.query_params['text']
-        #category = callMLAlgo('Can please Nick at least look at fastai inference manuals?')
-        category = callMLAlgo(text)
-        #category = 'sports'
-    return JSONResponse({'category' : category})
+# def classify(text):
+# #    learn = load_learner(file = 'export_clas.pkl')
 
-def callMLAlgo(text):
-#    learn = load_learner(file = 'export_clas.pkl')
-    category = learn.predict(text)
-    return category
+#     return category
 
 
     
