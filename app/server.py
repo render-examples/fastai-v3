@@ -12,7 +12,7 @@ from fastai.vision import *
 export_file_url = 'https://drive.google.com/uc?export=download&id=1FQChdUDme6bByUC8GN_Ul_BSuk6vonDJ'
 export_file_name = 'CleanIt.pkl'
 
-classes = ['black', 'grizzly', 'teddys']
+classes = ['Clean', 'Messy']
 path = Path(__file__).parent
 
 app = Starlette()
