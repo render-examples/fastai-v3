@@ -7,8 +7,6 @@ from io import BytesIO
 
 from fastai import *
 from fastai.vision import *
-from PIL import Image
-import urllib.request
 
 # export_file_url = 'https://www.dropbox.com/s/v6cuuvddq73d1e0/export.pkl?raw=1'
 export_file_url = 'https://www.dropbox.com/s/2oaahrh0nzggbkr/export.pkl?dl=1'
@@ -54,9 +52,8 @@ def index(request):
 @app.route('/analyze', methods=['POST'])
 async def analyze(request):
     data = await request.form()
-    img = Image.open(urllib.request.urlopen(data['file']))
-    #img_bytes = await (data['file'].read())
-    #img = open_image(BytesIO(img_bytes))
+    img_bytes = await (data['file'].read())
+    img = open_image(BytesIO(img_bytes))
     prediction = learn.predict(img)[0]
     return JSONResponse({'result': str(prediction)})
 
