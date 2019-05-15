@@ -7,3 +7,4 @@ uvicorn==0.3.32
 python-multipart
 aiofiles
 aiohttp
+Pillow
