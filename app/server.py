@@ -9,8 +9,8 @@ from fastai import *
 from fastai.vision import *
 
 # export_file_url = 'https://www.dropbox.com/s/v6cuuvddq73d1e0/export.pkl?raw=1'
-export_file_url = 'https://www.dropbox.com/s/gm9blrlhilt8kv6/resnet50-9.pth?dl=1'
-export_file_name = 'resnet50-9.pth'
+export_file_url = 'https://www.dropbox.com/s/2oaahrh0nzggbkr/export.pkl?dl=1'
+export_file_name = 'export.pkl'
 
 classes = ['NOpeople', 'people']
 path = Path(__file__).parent
