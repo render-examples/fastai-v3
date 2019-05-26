@@ -9,8 +9,8 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://drive.google.com/uc?export=download&confirm=nvbz&id=1DDrq_8ADUFJztIJoevAROTNTUvNF3SRb'
-export_file_name = 'stage-1.pth'
+export_file_url = 'https://drive.google.com/uc?export=download&id=1qdDpCx_d11s73ryFK4wLii-CtqCe_k1u'
+export_file_name = 'export.pkl'
 
 classes = ['palm',
   'l',
