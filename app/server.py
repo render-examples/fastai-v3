@@ -9,7 +9,7 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://www.dropbox.com/s/gjver8e2l4ee2z8/export.pkl?dl=0'
+export_file_url = 'https://www.dropbox.com/s/gjver8e2l4ee2z8/export.pkl?dl=1'
 export_file_name = 'export.pkl'
 
 classes = ['01_palm',
@@ -38,18 +38,10 @@ async def download_file(url, dest):
                 f.write(data)
 
 
-async def setup_learner():
-    await download_file(export_file_url, path / export_file_name)
-    try:
-        learn = load_learner(path, export_file_name)
-        return learn
-    except RuntimeError as e:
-        if len(e.args) > 0 and 'CPU-only machine' in e.args[0]:
-            print(e)
-            message = "\n\nThis model was trained with an old version of fastai and will not work in a CPU environment.\n\nPlease update the fastai library in your training environment and export your model again.\n\nSee instructions for 'Returning to work' at https://course.fast.ai."
-            raise RuntimeError(message)
-        else:
-            raise
+async def setup_learner(model_file_url, model_file_name):
+    await download_file(model_file_url, path / 'models' / f'{model_file_name}')
+    learn = load_learner(path / 'models', model_file_name)
+    return learn
 
 
 loop = asyncio.get_event_loop()
