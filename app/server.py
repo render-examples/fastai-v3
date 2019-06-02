@@ -1,3 +1,4 @@
+!pip install --upgrade fastai torch==1.0.0
 import aiohttp
 import asyncio
 import uvicorn
