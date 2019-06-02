@@ -11,7 +11,7 @@ from starlette.staticfiles import StaticFiles
 
 export_file_url = 'https://drive.google.com/uc?export=download&id=1DEpF9-hwiZXB3DVAG17olVct1buGa8Af'
 export_file_name = 'export.pkl'
-classes = ['matar_paneer','palak_paneer','shahi_paneer','paneer_bhurji','malai_kofta','chilli_paneer','paneer_pakora']
+classes = ['matar_paneer','palak_paneer','shahi_paneer','paneer_bhurji','malai_kofta','chilli_paneer','paneer_pakora','paneer_tikka','kadhai_paneer']
 path = Path(__file__).parent
 
 app = Starlette()
