@@ -9,10 +9,28 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://www.dropbox.com/s/6bgq8t6yextloqp/export.pkl?raw=1'
+export_file_url = 'https://www.dropbox.com/s/sdshpuxtmu61yg9/export.pkl?dl=1'
 export_file_name = 'export.pkl'
 
-classes = ['black', 'grizzly', 'teddys']
+classes = ['Absolute Path', 'Camera ID', 'Make', 'Model', 'Camera Name',
+       'Attention Needed Flag', 'Camera Check Flag', 'Date/Time',
+       'Media created', 'Media Filename', 'Media Format', 'Media ID',
+       'Media Processed Flag', '[Translation missing]', 'Media updated',
+       'Media URI', 'Exposure Bias Value', 'Flash', 'Aperture Value',
+       'Focal Length', 'ISO Speed Ratings', 'Orientation', 'Image Height',
+       'Image Width', 'Sighting Created', 'Sighting ID', 'Sighting Quantity',
+       'Sighting Updated', 'Site Area (km2)', 'City',
+       'Country/Primary Location Name', 'Site ID', 'Site Name',
+       'Province/State', 'Sub-location', 'Species Mass End', 'Species Mass ID',
+       'Species Mass Start', 'Survey ID', 'Survey Name', 'Survey Site ID',
+       'Class', 'Species Common Name', 'Taxonomy created', 'Family', 'Genus',
+       'Species ID', 'Species', 'Order', 'Species.1', 'Taxonomy updated',
+       'GPS Altitude', 'Trap Station ID', 'Camelot GPS Latitude',
+       'Camelot GPS Longitude', 'Trap Station Name',
+       'Trap Station Session Camera ID', 'Session End Date',
+       'Trap Station Session ID', 'Session Start Date', 'Sex', 'Age Class',
+       'Black Rhino ID', 'Lion ID', 'Leopard ID', 'Cheetah ID', 'Elephant ID',
+       'White Rhino ID', 'Hyaena ID']
 path = Path(__file__).parent
 
 app = Starlette()
