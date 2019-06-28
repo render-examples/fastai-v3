@@ -9,8 +9,8 @@ from fastai import *
 from fastai.vision import *
 
 # export_file_url = 'https://www.dropbox.com/s/v6cuuvddq73d1e0/export.pkl?raw=1'
-export_file_url = 'https://www.hongkonghustle.com/SHORTexport.pkl'
-export_file_name = 'SHORTexport.pkl'
+export_file_url = 'https://www.hongkonghustle.com/remake_export.pkl'
+export_file_name = 'remake_export.pkl'
 
 classes = ['pork_and_shrimp_dumpling', 'shrimp_dumpling', 'soup_dumpling', 'steamed_bbq_pork_bun']
 path = Path(__file__).parent
