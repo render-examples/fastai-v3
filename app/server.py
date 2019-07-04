@@ -14,7 +14,7 @@ from starlette.staticfiles import StaticFiles
 # export_file_name = 'export-bear-jimmy.pkl'
 
 # export_file_url = 'https://www.dropbox.com/s/6bgq8t6yextloqp/export.pkl?raw=1'
-export_file_url = 'https://drive.google.com/file/d/14HsCBPpO5jQPX_Rcee6GePxZ5Qf4nr1P/view?usp=sharing'
+export_file_url = 'https://www.googleapis.com/drive/v3/files/14HsCBPpO5jQPX_Rcee6GePxZ5Qf4nr1P?alt=media&key=AIzaSyBenHXdkWNZx_gatP7XqpqVTip_PUHr9g8' 
 export_file_name = 'export.pkl'
 
 classes = ['black', 'grizzly', 'teddys']
