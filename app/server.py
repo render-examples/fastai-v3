@@ -10,7 +10,7 @@ from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
 export_file_url = 'https://drive.google.com/file/d/1y158DO_86DPxL8wzpYWTgu-8izS_lvr2/view?usp=sharing'
-export_file_name = 'export.pkl'
+export_file_name = 'export-bear-jimmy.pkl'
 
 classes = ['black', 'grizzly', 'teddys']
 path = Path(__file__).parent
