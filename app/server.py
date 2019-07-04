@@ -14,10 +14,13 @@ from starlette.staticfiles import StaticFiles
 # export_file_name = 'export-bear-jimmy.pkl'
 
 # export_file_url = 'https://www.dropbox.com/s/6bgq8t6yextloqp/export.pkl?raw=1'
-export_file_url = 'https://www.googleapis.com/drive/v3/files/14HsCBPpO5jQPX_Rcee6GePxZ5Qf4nr1P?alt=media&key=AIzaSyBenHXdkWNZx_gatP7XqpqVTip_PUHr9g8' 
-export_file_name = 'export.pkl'
+# export_file_url = 'https://www.googleapis.com/drive/v3/files/14HsCBPpO5jQPX_Rcee6GePxZ5Qf4nr1P?alt=media&key=AIzaSyBenHXdkWNZx_gatP7XqpqVTip_PUHr9g8' 
+# classes = ['black', 'grizzly', 'teddys']
 
-classes = ['black', 'grizzly', 'teddys']
+export_file_url = 'https://www.googleapis.com/drive/v3/files/1LHawRlnLaZRZKUauBGeHPS2xAE7CNaRM?alt=media&key=AIzaSyBenHXdkWNZx_gatP7XqpqVTip_PUHr9g8'
+export_file_name = 'export-pacifica-pier.pkl'
+
+classes = ['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20', '21', '22', '23']
 path = Path(__file__).parent
 
 app = Starlette()
