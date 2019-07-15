@@ -62,7 +62,8 @@ async def analyze(request):
     img = open_image(BytesIO(img_bytes))
     prediction = learn.predict(img)[0]
     if prediction =='alexandre_ferrer':
-        return JSONResponse({'A quoi tu joues Alex ? '}) 
+        html_file2 = path / 'view' / 'alex.html'
+        return HTMLResponse(html_file2.open().read()) 
     else:
         return JSONResponse({'Personnage détecté ': str(prediction)})
     
