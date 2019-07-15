@@ -1,0 +1,13 @@
+
+body {
+    background: #333;
+    margin: 0;
+    padding: 0;
+    background-image:   url("https://jjwallace.github.io/assets/examples/images/boomback.png");
+}
+
+#game {
+    margin: 0 auto;
+    max-height: 568px;
+    max-width: 320px;
+}
