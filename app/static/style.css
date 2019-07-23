@@ -26,7 +26,7 @@ body {
 
 .analyze {
     margin-top: 5em;
-    color:green;
+
 }
 
 .upload-label {
@@ -45,17 +45,17 @@ button.choose-file-button {
     height: 40px;
     border-radius: 2px;
     background-color: #ffffff;
-    border: solid 1px #7052CB;
+    border: solid 1px #008000;
     font-size: 13px;
-    color: #7052CB;
+    color: #008000;
 }
 
 button.analyze-button {
     width: 200px;
     height: 40px;
-    border: solid 1px #7052CB;
+    border: solid 1px #008000;
     border-radius: 2px;
-    background-color: #7052CB;
+    background-color: #008000;
     font-size: 13px;
     color: #ffffff;
 }
