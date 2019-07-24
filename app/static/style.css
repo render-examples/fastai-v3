@@ -43,7 +43,7 @@ body {
 button.choose-file-button {
     position: relative;
     bottom: 30px;
-    
+
     width: 200px;
     height: 40px;
     border-radius: 3px;
@@ -73,7 +73,6 @@ button.analyze-button:hover {
     background-color: rgb(69, 122, 219); /* Green */
     color: white;
 }
-
 button:focus {
     outline: 0;
 }
