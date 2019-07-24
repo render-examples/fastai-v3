@@ -41,13 +41,22 @@ body {
 }
 
 button.choose-file-button {
+    position: relative;
+    bottom: 30px;
+    
     width: 200px;
     height: 40px;
-    border-radius: 2px;
+    border-radius: 3px;
     background-color: #ffffff;
     border: solid 1px #008000;
     font-size: 13px;
     color: #008000;
+}
+
+button.choose-file-button:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+
 }
 
 button.analyze-button {
@@ -58,6 +67,11 @@ button.analyze-button {
     background-color: #008000;
     font-size: 13px;
     color: #ffffff;
+}
+
+button.analyze-button:hover {
+    background-color: rgb(69, 122, 219); /* Green */
+    color: white;
 }
 
 button:focus {
