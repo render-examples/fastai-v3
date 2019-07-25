@@ -24,9 +24,20 @@ body {
     margin-top: 10em;
 }
 
-.select {
+.analyze {
     margin-top: 5em;
 
+}
+
+.upload-label {
+    padding: 10px;
+    font-size: 12px;
+}
+
+.result-label {
+    margin-top: 0.5em;
+    padding: 10px;
+    font-size: 13px;
 }
 
 button.choose-file-button {
