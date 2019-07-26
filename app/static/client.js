@@ -39,3 +39,12 @@ function analyze() {
   xhr.send(fileData);
 }
 
+function submit_value(){
+  var selectValue = el("select-menu").value;
+
+
+
+
+
+
+}

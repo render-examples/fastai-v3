@@ -15,26 +15,30 @@
         <div class='content'>
 
             <div class='select'>
-                <select>
-                    <option> --Please choose-- </option>
-                    <option value="cardboard">Cardboard</option>
-                    <option value="e-waste">E-waste</option>
-                    <option value="glass">Glass</option>
-                    <option value="metal">Metal</option>
-                    <option value="paper">Paper</option>
-                    <option value="plastic">Plastic</option>
-                    <option value="trash">Trash</option>
-                </select>
+                <form id="form" method="post" action="" >
+                    <select id="select-menu">
+                        <option> --Please choose-- </option>
+                        <option value="cardboard">Cardboard</option>
+                        <option value="e-waste">E-waste</option>
+                        <option value="glass">Glass</option>
+                        <option value="metal">Metal</option>
+                        <option value="paper">Paper</option>
+                        <option value="plastic">Plastic</option>
+                        <option value="trash">Trash</option>
+                    </select>
+
+                    <button type="submit" id='submit-button' class='submit-button'  
+                    value="SUBMIT" onclick= submit_value()  >
+                    Submit</button>
+
+                </form>
             </div>
                     
-            <div>
-                <button id='submit-button' class='submit-button' type='button' onclick='showPicker()'>
-                    SUBMIT
-                </button>
-            </div>
+    
 
             <div class='back'>
-                <button id='back-button' class='back-button' onclick= "location.href='/'" type='button'>
+                <button id='back-button' class='back-button' onclick= "location.href='/'" 
+                type='button'>
                     Try another TRASH &raquo;
                 </button>
             </div>
