@@ -21,7 +21,7 @@ body {
 }
 
 .content {
-    margin-top: 10em;
+    margin-top: 5 em;
 }
 
 .analyze {
@@ -40,11 +40,12 @@ body {
     font-size: 13px;
 }
 
-button.choose-file-button {
-    position: relative;
-    bottom: 30px;
 
-    width: 200px;
+button.submit-button {
+    position: relative; 
+    top: 30px;>
+
+    width: 100px;
     height: 40px;
     border-radius: 3px;
     background-color: #ffffff;
@@ -52,27 +53,33 @@ button.choose-file-button {
     font-size: 13px;
     color: #008000;
 }
-
-button.choose-file-button:hover {
+button.submit-button:hover {
     background-color: #4CAF50; /* Green */
     color: white;
 
 }
 
-button.analyze-button {
+button.back-button {
+    position: relative; 
+    top: 60px;>
+
     width: 200px;
     height: 40px;
-    border: solid 1px #008000;
-    border-radius: 2px;
-    background-color: #008000;
+    border-radius: 3px;
+    background-color: #ffffff;
+    border: solid 1px rgb(69, 122, 219);
     font-size: 13px;
-    color: #ffffff;
+    color: rgb(69, 122, 219);
 }
 
-button.analyze-button:hover {
+button.back-button:hover {
     background-color: rgb(69, 122, 219); /* Green */
     color: white;
+
 }
+
+
+
 button:focus {
     outline: 0;
 }

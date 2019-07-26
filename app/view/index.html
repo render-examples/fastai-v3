@@ -16,6 +16,7 @@
     
 
     <div class='content'>
+
       <div class='no-display'>
         <input id='file-input'
                class='no-display'
@@ -25,9 +26,14 @@
                onchange='showPicked(this)'>
       </div>
 
-      <button class='choose-file-button' type='button' onclick='showPicker()'>Select Image</button>
+      <button class='choose-file-button' type='button' onclick='showPicker()'>
+        Select Image
+      </button>
+
       <div class='upload-label'>
-        <label id='upload-label'>No file chosen</label>
+        <label id='upload-label'>
+          No file chosen
+        </label>
       </div>
     
       <div>
@@ -35,16 +41,30 @@
       </div>
 
       <div class='analyze'>
-        <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Analyze</button>
+        <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>
+          Analyze
+        </button>
       </div>
       
       <div class='result-label'>
         <label id='result-label'></label>
       </div>
       
-      <div>
-        <a href="./feedback.html"> Wrong answer?</a>
+
+      <div class='right'>
+          <button id='right-button' class='right-button' onclick= "location.href='/'" type='button'>
+            Got it right!
+          </button>
       </div>
+
+      
+      <div class='wrong'>
+        <button id='wrong-button' class='wrong-button' onclick= "location.href='/feedback'" type='button'>
+          Wrong answer?
+        </button>
+      </div>
+
+
       
     </div>
   </div>

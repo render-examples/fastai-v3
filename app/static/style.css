@@ -10,7 +10,7 @@ body {
     margin: auto;
     padding: 10px 50px;
     text-align: center;
-    font-size: 14px;
+    font-size: 20px;
 }
 
 .title {
@@ -21,7 +21,7 @@ body {
 }
 
 .content {
-    margin-top: 10em;
+    margin-top: 5em;
 }
 
 .analyze {
@@ -42,9 +42,6 @@ body {
 
 
 button.choose-file-button {
-    position: relative; 
-    bottom: 30px;>
-
     width: 200px;
     height: 40px;
     border-radius: 3px;
@@ -53,7 +50,6 @@ button.choose-file-button {
     font-size: 13px;
     color: #008000;
 }
-
 button.choose-file-button:hover {
     background-color: #4CAF50; /* Green */
     color: white;
@@ -73,6 +69,42 @@ button.analyze-button {
 
 button.analyze-button:hover {
     background-color: rgb(69, 122, 219); /* Green */
+    color: white;
+
+}
+
+button.right-button {
+
+    width: 100px;
+    height: 40px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    border: solid 1px rgb(40, 187, 11);
+    font-size: 13px;
+    color: rgb(40, 187, 11);
+}
+
+button.right-button:hover {
+    background-color: rgb(40, 187, 11); 
+    color: white;
+
+}
+
+button.wrong-button {
+    position: relative; 
+    top: 5px;>
+
+    width: 100px;
+    height: 40px;
+    border-radius: 3px;
+    background-color: #ffffff;
+    border: solid 1px rgb(189, 27, 27);
+    font-size: 13px;
+    color: rgb(189, 27, 27);
+}
+
+button.wrong-button:hover {
+    background-color: rgb(189, 27, 27); 
     color: white;
 
 }

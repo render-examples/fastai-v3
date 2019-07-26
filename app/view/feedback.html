@@ -1,43 +1,45 @@
 <html lang='en'>
 <head>
   <meta charset='utf-8'>
-  <link rel='stylesheet' href='../static/style2.css'>
+  <link rel='stylesheet' href='../static/feedback.css'>
   <script src='../static/client.js'></script>
 </head>
 
 <body>
 <div>
     <div class='center'>
-    
-        <div>
-            <p>
-            Choose the right <strong>trash categories</strong> to help us improve! 
-            </p>
-        </div>
+        <p>
+        Choose the right <strong>trash categories</strong> to help us improve! 
+        </p>
 
-        <div class='select'>
-            <select>
-                <option> --Please choose-file-button</option>
-                <option value="cardboard">Cardboard</option>
-                <option value="e-waste">E-waste</option>
-                <option value="glass">Glass</option>
-                <option value="metal">Metal</option>
-                <option value="paper">Paper/option>
-                <option value="plastic">Plastic</option>
-                <option value="trash">Trash</option>
-            </select>
+        <div class='content'>
+
+            <div class='select'>
+                <select>
+                    <option> --Please choose-- </option>
+                    <option value="cardboard">Cardboard</option>
+                    <option value="e-waste">E-waste</option>
+                    <option value="glass">Glass</option>
+                    <option value="metal">Metal</option>
+                    <option value="paper">Paper</option>
+                    <option value="plastic">Plastic</option>
+                    <option value="trash">Trash</option>
+                </select>
+            </div>
+                    
+            <div>
+                <button id='submit-button' class='submit-button' type='button' onclick='showPicker()'>
+                    SUBMIT
+                </button>
+            </div>
+
+            <div class='back'>
+                <button id='back-button' class='back-button' onclick= "location.href='/'" type='button'>
+                    Try another TRASH &raquo;
+                </button>
+            </div>
         </div>
-                
-        <div>
-            <button class='submit' type='button' onclick='showPicker()'>
-                SUBMIT
-            </button>
-        </div>
-        
-        <div class='thank'>
-            <label id='thank'></label>
-            Thank you! <a href="index.html">Try another picture! </a>>
-        </div>
+            
     </div>
 
 
