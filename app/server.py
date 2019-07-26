@@ -1,13 +1,17 @@
 import aiohttp
 import asyncio
 import uvicorn
+import os
 from fastai import *
 from fastai.vision import *
+import random
+import string
 from io import BytesIO
 from starlette.applications import Starlette
 from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
+from google.cloud import storage
 
 export_file_url = 'https://www.dropbox.com/s/yuwyshs6tmwp46b/trained_model_1%20%281%29.pkl?raw=1'
 export_file_name = 'export.pkl'
@@ -67,6 +71,25 @@ async def analyze(request):
     prediction = learn.predict(img)[0]
     return JSONResponse({'result': str(prediction)})
 
+@app.route('/submit', methods=['POST'])
+async def submit(request):
+    img_data = (await request.form())
+    for key in img_data.keys():
+        pred = key
+    img_bytes = await (img_data[pred].read())
+    img = open_image(BytesIO(img_bytes))
+    prediction = pred
+    # bucket upload...
+    # """Uploads a file to the bucket."""
+    storage_client = storage.Client.from_service_account_json(
+        'app/AMLI-6588677dc859.json')
+    buckets = list(storage_client.list_buckets())
+    bucket = storage_client.get_bucket('amli_trashnet_photos')
+    alias = ''.join(random.choice(string.ascii_letters) for _ in range(32))
+    blobstr = 'Web_data/' + prediction + '/' + alias
+    blob = bucket.blob(blobstr)
+    blob.upload_from_string(img_bytes, content_type = 'image/jpeg')
+    return JSONResponse({'result': str(prediction)})
 
 if __name__ == '__main__':
     if 'serve' in sys.argv:
