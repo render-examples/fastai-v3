@@ -10,6 +10,9 @@ function showPicked(input) {
   reader.onload = function(e) {
     el("image-picked").src = e.target.result;
     el("image-picked").className = "";
+    
+    el("image-picked2").src = e.target.result;
+    el("image-picked2").className = "";
   };
   reader.readAsDataURL(input.files[0]);
 }
@@ -38,4 +41,3 @@ function analyze() {
   fileData.append("file", uploadFiles[0]);
   xhr.send(fileData);
 }
-
