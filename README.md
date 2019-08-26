@@ -1,3 +1,7 @@
+# [2019-8-24] Show two images test!
+
+This modification test only for showing two images in the web browser, preparing for the U-net image generation model.
+
 # Starter for deploying [fast.ai](https://www.fast.ai) models on [Render](https://render.com)
 
 This repo can be used as a starting point to deploy [fast.ai](https://github.com/fastai/fastai) models on Render.
