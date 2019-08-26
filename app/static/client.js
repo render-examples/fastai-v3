@@ -11,10 +11,29 @@ function showPicked(input) {
     el("image-picked").src = e.target.result;
     el("image-picked").className = "";
     
-    el("image-picked2").src = e.target.result;
-    el("image-picked2").className = "";
+    //el("image-picked2").src = e.target.result;
+    //el("image-picked2").className = "";
   };
   reader.readAsDataURL(input.files[0]);
+}
+
+function showPicked2() {
+  //el("upload-label").innerHTML = input.files[0].name;
+  var uploadFiles = el("file-input").files;
+  if (uploadFiles.length !== 1) alert("Please select a file to analyze!");
+
+  el("analyze-button").innerHTML = "Analyzing...";
+  
+  var reader = new FileReader();
+  reader.onload = function(e) {
+    el("image-picked2").src = e.target.result;
+    el("image-picked2").className = "";
+    
+    //el("image-picked2").src = e.target.result;
+    //el("image-picked2").className = "";
+  };
+  reader.readAsDataURL(uploadFiles[0]);
+
 }
 
 function analyze() {
