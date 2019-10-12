@@ -3,9 +3,9 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-h1 {
+/* h1 {
     font-family: 'Source Sans Pro', sans-serif;
-  }
+  } */
 .no-display {
     display: none;
 }
@@ -26,6 +26,9 @@ h1 {
     font-family: 'Source Sans Pro', sans-serif;
     position: absolute;
     right: 0px;
+    display: inline-block;
+    vertical-align: middle;
+    /* float: right; */
 
 }
 
@@ -50,6 +53,9 @@ h1 {
 
 .analyze {
     margin-top: 5em;
+    display: inline-block;
+    vertical-align: middle;
+    /* float: right; */
     /* position:right; */
 }
 
@@ -74,6 +80,9 @@ button.choose-file-button {
     border: solid 1px rgb(14, 10, 26);
     font-size: 13px;
     color: rgb(16, 13, 26);
+    display: inline-block;
+    vertical-align: middle;
+/* float: right; */
     /* position:right; */
 }
 
@@ -85,6 +94,9 @@ button.analyze-button {
     background-color: rgb(31, 19, 68);
     font-size: 13px;
     color: #141212;
+    display: inline-block;
+    vertical-align: middle;
+/* float: right; */
 }
 
 button:focus {
