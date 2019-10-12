@@ -47,17 +47,20 @@ h1 {
 
 .analyze {
     margin-top: 5em;
+    position:right;
 }
 
 .upload-label {
     padding: 10px;
     font-size: 12px;
+    position: right;
 }
 
 .result-label {
     margin-top: 0.5em;
     padding: 10px;
     font-size: 13px;
+    position: right;
 }
 
 button.choose-file-button {
@@ -65,9 +68,10 @@ button.choose-file-button {
     height: 40px;
     border-radius: 2px;
     background-color: #ffffff;
-    border: solid 1px #7052CB;
+    border: solid 1px rgb(14, 10, 26);
     font-size: 13px;
-    color: #7052CB;
+    color: rgb(16, 13, 26);
+    position:right;
 }
 
 button.analyze-button {
