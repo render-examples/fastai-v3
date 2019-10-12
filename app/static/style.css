@@ -93,10 +93,8 @@ button.analyze-button {
     border-radius: 2px;
     background-color: rgb(31, 19, 68);
     font-size: 13px;
-    color: #141212;
-    display: inline-block;
+    color: #cca9a9;
     vertical-align: middle;
-/* float: right; */
 }
 
 button:focus {
