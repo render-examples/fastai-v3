@@ -15,6 +15,23 @@ h1 {
     padding: 10px 50px;
     text-align: center;
     font-size: 14px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.right {
+    margin: auto;
+    padding: 10px 50px;
+    text-align: right;
+    font-size: 14px;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.left {
+    margin: auto;
+    padding: 10px 50px;
+    text-align: left;
+    font-size: 14px;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .title {
