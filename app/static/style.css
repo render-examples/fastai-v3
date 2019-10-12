@@ -1,7 +1,11 @@
 body {
     background-color: #fff;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
+h1 {
+    font-family: 'Source Sans Pro', sans-serif;
+  }
 .no-display {
     display: none;
 }
