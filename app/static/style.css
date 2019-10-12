@@ -24,6 +24,9 @@ h1 {
     text-align: right;
     font-size: 14px;
     font-family: 'Source Sans Pro', sans-serif;
+    position: absolute;
+    right: 0px;
+
 }
 
 .left {
@@ -47,20 +50,20 @@ h1 {
 
 .analyze {
     margin-top: 5em;
-    position:right;
+    /* position:right; */
 }
 
 .upload-label {
     padding: 10px;
     font-size: 12px;
-    position: right;
+    /* position: right; */
 }
 
 .result-label {
     margin-top: 0.5em;
     padding: 10px;
     font-size: 13px;
-    position: right;
+    /* position: right; */
 }
 
 button.choose-file-button {
@@ -71,17 +74,17 @@ button.choose-file-button {
     border: solid 1px rgb(14, 10, 26);
     font-size: 13px;
     color: rgb(16, 13, 26);
-    position:right;
+    /* position:right; */
 }
 
 button.analyze-button {
     width: 200px;
     height: 40px;
-    border: solid 1px #7052CB;
+    border: solid 1px rgb(20, 13, 44);
     border-radius: 2px;
-    background-color: #7052CB;
+    background-color: rgb(31, 19, 68);
     font-size: 13px;
-    color: #ffffff;
+    color: #141212;
 }
 
 button:focus {
