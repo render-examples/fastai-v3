@@ -14,7 +14,7 @@ body {
     margin: auto;
     padding: 10px 50px;
     text-align: center;
-    font-size: 14px;
+    font-size: 20px;
     /* font-family: 'Source Sans Pro', sans-serif; */
 }
 
@@ -22,7 +22,7 @@ body {
     margin: auto;
     padding: 10px 50px;
     text-align: right;
-    font-size: 14px;
+    font-size: 20px;
     /* font-family: 'Source Sans Pro', sans-serif; */
     position: absolute;
     right: 0px;
@@ -36,7 +36,7 @@ body {
     margin: auto;
     padding: 10px 50px;
     text-align: left;
-    font-size: 14px;
+    font-size: 20px;
     /* font-family: 'Source Sans Pro', sans-serif; */
 }
 
