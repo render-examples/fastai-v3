@@ -67,8 +67,8 @@ body {
 
 .result-label {
     margin-top: 0.5em;
-    padding: 10px;
-    font-size: 14px;
+    /* padding: 10px; */
+    font-size: 30px;
     font-family: 'Source Sans Pro', sans-serif;
     /* position: right; */
 }
