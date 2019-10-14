@@ -1,6 +1,6 @@
 body {
     background-color: #fff;
-    font-family: 'Courier New';
+    font-family: Source Sans Pro;
 }
 
 /* h1 {
@@ -15,7 +15,7 @@ body {
     padding: 10px 50px;
     text-align: center;
     font-size: 14px;
-    font-family: 'Source Sans Pro', sans-serif;
+    /* font-family: 'Source Sans Pro', sans-serif; */
 }
 
 .right {
@@ -23,7 +23,7 @@ body {
     padding: 10px 50px;
     text-align: right;
     font-size: 14px;
-    font-family: 'Source Sans Pro', sans-serif;
+    /* font-family: 'Source Sans Pro', sans-serif; */
     position: absolute;
     right: 0px;
     display: inline-block;
@@ -37,7 +37,7 @@ body {
     padding: 10px 50px;
     text-align: left;
     font-size: 14px;
-    font-family: 'Source Sans Pro', sans-serif;
+    /* font-family: 'Source Sans Pro', sans-serif; */
 }
 
 .title {
