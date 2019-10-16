@@ -16,7 +16,7 @@ function showPicked(input) {
 
 function analyze() {
   var uploadFiles = el("file-input").files;
-  if (uploadFiles.length !== 1) alert("Please select a file to analyze!");
+  if (uploadFiles.length !== 1) alert("Please upload a payslip to analyze!");
 
   el("analyze-button").innerHTML = "Analyzing...";
   var xhr = new XMLHttpRequest();
@@ -30,7 +30,7 @@ function analyze() {
     if (this.readyState === 4) {
       var response = JSON.parse(e.target.responseText);
       // el("result-label").innerHTML = `${response["result"]}`;
-      el("result-label").innerHTML = ` > NO `;
+      el("result-label").innerHTML = ` > MAN `;
     }
     el("analyze-button").innerHTML = "Analyze";
   };
