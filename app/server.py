@@ -9,10 +9,12 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://www.dropbox.com/s/6bgq8t6yextloqp/export.pkl?raw=1'
-export_file_name = 'export.pkl'
+# export_file_url = 'https://www.dropbox.com/s/6bgq8t6yextloqp/export.pkl?raw=1'
+export_file_url = 'https://drive.google.com/open?id=1YMgds-ERUKRERWXy1sNkcP-wPAT6qrDR'
 
-classes = ['black', 'grizzly', 'teddys']
+export_file_name = 'my_model.pkl'
+
+classes = ['acer_platanoides', 'acer_saccharinum', 'aesculus_flava', 'ailanthus_altissima', 'amelanchier_canadensis', 'betula_alleghaniensis', 'betula_nigra', 'carpinus_betulus', 'castanea_dentata', 'catalpa_speciosa', 'chamaecyparis_thyoides', 'chionanthus_retusus', 'cornus_florida', 'evodia_daniellii', 'ficus_carica', 'fraxinus_nigra', 'fraxinus_pennsylvanica', 'ilex_opaca', 'juglans_cinerea', 'juniperus_virginiana', 'maclura_pomifera', 'magnolia_acuminata', 'magnolia_soulangiana', 'magnolia_tripetala', 'malus_angustifolia', 'malus_coronaria', 'malus_pumila', 'nyssa_sylvatica', 'oxydendrum_arboreum', 'phellodendron_amurense', 'picea_orientalis', 'picea_pungens', 'pinus_densiflora', 'pinus_echinata', 'pinus_parviflora', 'pinus_sylvestris', 'populus_grandidentata', 'prunus_serrulata', 'quercus_falcata', 'quercus_macrocarpa', 'quercus_marilandica', 'quercus_michauxii', 'quercus_montana', 'quercus_muehlenbergii', 'quercus_phellos', 'quercus_stellata', 'quercus_virginiana', 'salix_babylonica', 'stewartia_pseudocamellia', 'styrax_obassia', 'taxodium_distichum', 'ulmus_glabra']
 path = Path(__file__).parent
 
 app = Starlette()
