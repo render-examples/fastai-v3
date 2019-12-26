@@ -9,10 +9,46 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://www.dropbox.com/s/6bgq8t6yextloqp/export.pkl?raw=1'
-export_file_name = 'export.pkl'
+export_file_url = 'https://drive.google.com/open?id=1-4uC1OQh5hMSsRmCiPsL_TP4AoZ_USKh'
+export_file_name = 'pets-1.pkl'
 
-classes = ['black', 'grizzly', 'teddys']
+classes = ['Abyssinian',
+ 'Bengal',
+ 'Birman',
+ 'Bombay',
+ 'British_Shorthair',
+ 'Egyptian_Mau',
+ 'Maine_Coon',
+ 'Persian',
+ 'Ragdoll',
+ 'Russian_Blue',
+ 'Siamese',
+ 'Sphynx',
+ 'american_bulldog',
+ 'american_pit_bull_terrier',
+ 'basset_hound',
+ 'beagle',
+ 'boxer',
+ 'chihuahua',
+ 'english_cocker_spaniel',
+ 'english_setter',
+ 'german_shorthaired',
+ 'great_pyrenees',
+ 'havanese',
+ 'japanese_chin',
+ 'keeshond',
+ 'leonberger',
+ 'miniature_pinscher',
+ 'newfoundland',
+ 'pomeranian',
+ 'pug',
+ 'saint_bernard',
+ 'samoyed',
+ 'scottish_terrier',
+ 'shiba_inu',
+ 'staffordshire_bull_terrier',
+ 'wheaten_terrier',
+ 'yorkshire_terrier']
 path = Path(__file__).parent
 
 app = Starlette()
