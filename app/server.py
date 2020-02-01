@@ -65,7 +65,7 @@ async def analyze(request):
     sortedClasses = sorted(zip(classes, map(float, probabilities)),
             key=lambda p: p[1],
             reverse=True)
-    return JSONResponse({str(sortedClasses[0][0]) : f"{sortedClasses[0][1]:{8}.{3}}" })
+    return JSONResponse({'result': str(prediction)})
 
 
 if __name__ == '__main__':
