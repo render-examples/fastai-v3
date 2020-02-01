@@ -61,7 +61,11 @@ async def analyze(request):
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
     prediction = learn.predict(img)[0]
-    return JSONResponse({'result': str(prediction)})
+    pred_class, pred_idx, probabilities = prediction
+    sortedClasses = sorted(zip(classes, map(float, probabilities)),
+            key=lambda p: p[1],
+            reverse=True)
+    return JSONResponse({'result': str(prediction) : sortedClasses[0] })
 
 
 if __name__ == '__main__':
