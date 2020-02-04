@@ -63,7 +63,7 @@ async def analyze(request):
     # prediction = learn.predict(img)[0]
     result = learn.predict(img)
     prediction = result[0]
-    classIndex = result[1]
+    classIndex = result[1].item()
     # classProb = result[2][classIndex]
     # classPercent = round(classProb*100)
     # output = str(prediction) + str(' ') + str(classPercent) + str('%')
