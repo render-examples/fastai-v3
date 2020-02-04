@@ -62,13 +62,11 @@ async def analyze(request):
     img = open_image(BytesIO(img_bytes))
     # prediction = learn.predict(img)[0]
     result = learn.predict(img)
-    prediction = result[0]
+    prediction = result[0].item()
     classIndex = result[1].item()
     classProb = result[2][classIndex].item()
     classPercent = round(classProb*100)
-    output = str(prediction) + str(' : ') + str(classPercent) + str('%')
-    #output = str(prediction) 
-    #return JSONResponse({'result' : str(prediction)})
+    output = str(prediction) + str(' : ') + str(classPercent) + str('% confidence')
     return JSONResponse({'result' : output})
 
 
