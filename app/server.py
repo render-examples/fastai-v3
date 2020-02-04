@@ -70,7 +70,11 @@ async def analyze(request):
 #   pred_class, pred_idx, probabilities = prediction
 #            key=lambda p: p[1],
 #            reverse=True)
+<<<<<<< HEAD
     return JSONResponse({"Result" : output})
+=======
+    return JSONResponse({'result' : output})
+>>>>>>> parent of bd466b5... Update server.py
 
 
 if __name__ == '__main__':
