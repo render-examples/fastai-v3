@@ -64,8 +64,8 @@ async def analyze(request):
     result = learn.predict(img)
     prediction = result[0]
     classIndex = result[1].item()
-    # classProb = result[2][classIndex]
-    # classPercent = round(classProb*100)
+    classProb = result[2][classIndex].item()
+    classPercent = round(classProb*100)
     # output = str(prediction) + str(' ') + str(classPercent) + str('%')
     output = str(prediction) 
     #return JSONResponse({'result' : str(prediction)})
