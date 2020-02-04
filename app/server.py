@@ -62,7 +62,7 @@ async def analyze(request):
     img = open_image(BytesIO(img_bytes))
     # prediction = learn.predict(img)[0]
     result = learn.predict(img)
-    prediction = result[0].item()
+    prediction = result[0]
     classIndex = result[1].item()
     classProb = result[2][classIndex].item()
     classPercent = round(classProb*100)
