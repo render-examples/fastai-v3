@@ -66,8 +66,8 @@ async def analyze(request):
     classIndex = result[1].item()
     classProb = result[2][classIndex].item()
     classPercent = round(classProb*100)
-    # output = str(prediction) + str(' ') + str(classPercent) + str('%')
-    output = str(prediction) 
+    output = str(prediction) + str(' : ') + str(classPercent) + str('%')
+    #output = str(prediction) 
     #return JSONResponse({'result' : str(prediction)})
     return JSONResponse({'result' : output})
 
