@@ -60,21 +60,9 @@ async def analyze(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
-    result = learn.predict(img)
-    prediction = result[0]
-    classIndex = result[1]
-    classType = classes[classIndex]
-    classProb = result[2][classIndex]
-    classPercent = round(classProb*100)
-    output = str(classType) + str(' ') + str(classPercent) + str('%')
-#   pred_class, pred_idx, probabilities = prediction
-#            key=lambda p: p[1],
-#            reverse=True)
-<<<<<<< HEAD
-    return JSONResponse({"Result" : output})
-=======
-    return JSONResponse({'result' : output})
->>>>>>> parent of bd466b5... Update server.py
+    prediction = learn.predict(img)[0]
+    return JSONResponse({'result' : str(prediction)})
+
 
 
 if __name__ == '__main__':
