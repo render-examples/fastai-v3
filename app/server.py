@@ -70,7 +70,7 @@ async def analyze(request):
 #   pred_class, pred_idx, probabilities = prediction
 #            key=lambda p: p[1],
 #            reverse=True)
-    return JSONResponse({'result' : output})
+    return JSONResponse({"Result" : output})
 
 
 if __name__ == '__main__':
