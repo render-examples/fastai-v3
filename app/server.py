@@ -12,11 +12,12 @@ from starlette.staticfiles import StaticFiles
 #export_file_url = 'https://www.dropbox.com/s/e8bwv831u7zoapg/clouds.pkl?raw=1'
 #export_file_name = 'clouds.pkl'
 
-export_file_url = 'https://www.dropbox.com/s/abehrng71xtn9aq/clouds.pkl?raw=1'
-export_file_name = 'clouds3.pkl'
+export_file_url = 'https://www.dropbox.com/s/xcs7vw09pgvlp9v/clouds892.pkl?raw=1'
+export_file_name = 'clouds892.pkl'
 
 
-classes = ['Altocumulus', 'Altostratus', 'Cirrocumulus', 'Cirrostratus', 'Cirrus', 'Cumulonimbus', 'Cumulus', 'Nimbostratus', 'Stratocumulus', 'Stratus']
+
+classes = ['Altocumulus', 'Altocumululs Lenticularis', 'Altostratus', 'Cirrocumulus', 'Cirrostratus', 'Cirrus', 'Cumulonimbus', 'Cumulus', 'Nimbostratus', 'Stratocumulus', 'Stratus']
 path = Path(__file__).parent
 
 app = Starlette()
