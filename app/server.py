@@ -9,7 +9,8 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://www.dropbox.com/s/jvhjfrodorzsxq4/clouds.pkl?raw=1'
+export_file_url = 'https://www.dropbox.com/s/e8bwv831u7zoapg/clouds.pkl?raw=1'
+
 export_file_name = 'clouds.pkl'
 
 classes = ['Altocumulus', 'Altostratus', 'Cirrocumulus', 'Cirrostratus', 'Cirrus', 'Cumulonimbus', 'Cumulus', 'Nimbostratus', 'Stratocumulus', 'Stratus']
