@@ -71,10 +71,10 @@ async def analyze(request):
     classProb = result[2][classIndex].item()
     classPercent = round(classProb*100)
     output = str(prediction) + str(' : ') + str(classPercent) + str('% confidence')
-    return JSONResponse({'result' : output})
+    #return JSONResponse({'result' : output})
     
-   ##  _,_,losses = learn.predict(img)
-   ## return JSONResponse({ "predictions": sorted(zip(classes, map(float, losses)),key=lambda p: p[1],reverse=True)  })
+    _,_,losses = learn.predict(img)
+    return JSONResponse({ 'result' : sorted(zip(classes, map(float, losses)),key=lambda p: p[1],reverse=True)  })
  
 
 
