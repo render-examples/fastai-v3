@@ -30,7 +30,7 @@ async def download_file(url, dest):
         async with session.get(url) as response:
             data = await response.read()
             with open(dest, 'wb') as f:
-            f.write(data)
+                f.write(data)
 
 
 async def setup_learner():
