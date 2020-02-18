@@ -12,11 +12,11 @@ from starlette.staticfiles import StaticFiles
 #export_file_url = 'https://www.dropbox.com/s/e8bwv831u7zoapg/clouds.pkl?raw=1'
 #export_file_name = 'clouds.pkl'
 
-export_file_url = 'https://www.dropbox.com/s/t4zqu0j3e32dmnz/clouds838.pkl?raw=1'
-export_file_name = 'clouds838.pkl'
+export_file_url = 'https://www.dropbox.com/s/0umzro4cy7web2q/clouds864.pkl?raw=1'
+export_file_name = 'clouds864.pkl'
 
 
-classes = ['Altocumulus', 'Altocumulus Lenticularis', 'Altostratus', 'Cirrocumulus', 'Cirrostratus', 'Cirrus', 'Cumulonimbus', 'Cumulus', 'Nimbostratus', 'Stratocumulus', 'Stratus']
+classes = ['Altocumulus', 'Altocumulus Lenticularis', 'Altostratus', 'Cirrocumulus', 'Cirrostratus', 'Cirrus', 'Cumulonimbus', 'Cumulus', 'Mammatus', 'Nimbostratus', 'Stratocumulus', 'Stratus']
 path = Path(__file__).parent
 
 app = Starlette()
@@ -75,10 +75,26 @@ async def analyze(request):
     
     _,_,losses = learn.predict(img)
     sortedClasses = sorted(zip(classes, map(float, losses)),key=lambda p: p[1],reverse=True)
-    output1 = str(sortedClasses[0][0]) + str(' ') + str(round(100*sortedClasses[0][1])) + str('%')
-    output2 = str(sortedClasses[1][0]) + str(' ') + str(round(100*sortedClasses[1][1])) + str('%')
-    output3 = str(sortedClasses[2][0]) + str(' ') + str(round(100*sortedClasses[2][1])) + str('%')
-    return JSONResponse({'result' : [output1,output2,output3] })
+    
+    output = str(' ')
+    # Don't output more than 8 types, and stop when less than 2% rounded
+    
+    for i in range(7):
+        if sortedClasses[i][1] > 0.015:
+            if i>0:
+                output = output + str()', ')
+            output = output + str(sortedClasses[i][0]) + str(' ') + str(round(100*sortedClasses[i][1])) + str('%')
+        else:
+            break
+          
+    return JSONResponse({'result' : output })
+    
+    
+    #output1 = str(sortedClasses[0][0]) + str(' ') + str(round(100*sortedClasses[0][1])) + str('%')
+    #output2 = str(sortedClasses[1][0]) + str(' ') + str(round(100*sortedClasses[1][1])) + str('%')
+    #output3 = str(sortedClasses[2][0]) + str(' ') + str(round(100*sortedClasses[2][1])) + str('%')
+    
+    #return JSONResponse({'result' : [output1,output2,output3] })
     
     #return JSONResponse({ 'result' : sorted(zip(classes, map(float, losses)),key=lambda p: p[1],reverse=True) [:3] })
  
