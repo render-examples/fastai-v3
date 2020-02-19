@@ -15,8 +15,6 @@ from starlette.staticfiles import StaticFiles
 export_file_url = 'https://www.dropbox.com/s/qjop9kqve0x8zsm/clouds945.pkl?raw=1'
 export_file_name = 'clouds945.pkl'
 
-https://www.dropbox.com/s/qjop9kqve0x8zsm/clouds945.pkl?dl=0
-
 
 classes = ['Altocumulus', 'Altocumulus Lenticularis', 'Altostratus', 'Cirrocumulus', 'Cirrostratus', 'Cirrus', 'Cumulonimbus', 'Cumulus', 'KH Waves', 'Mammatus', 'Nimbostratus', 'Stratocumulus', 'Stratus']
 path = Path(__file__).parent
