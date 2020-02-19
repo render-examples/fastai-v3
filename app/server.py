@@ -16,7 +16,7 @@ export_file_url = 'https://www.dropbox.com/s/qjop9kqve0x8zsm/clouds945.pkl?raw=1
 export_file_name = 'clouds945.pkl'
 
 
-classes = ['Altocumulus', 'Altocumulus Lenticularis', 'Altostratus', 'Cirrocumulus', 'Cirrostratus', 'Cirrus', 'Cumulonimbus', 'Cumulus', 'KH Waves', 'Mammatus', 'Nimbostratus', 'Stratocumulus', 'Stratus']
+classes = ['Altocumulus', 'Altocumulus Lenticularis', 'Altostratus', 'Cirrocumulus', 'Cirrostratus', 'Cirrus', 'Cumulonimbus', 'Cumulus', 'Kelvin-Helmholtz Billows', 'Mammatus', 'Nimbostratus', 'Stratocumulus', 'Stratus']
 path = Path(__file__).parent
 
 app = Starlette()
@@ -81,9 +81,10 @@ async def analyze(request):
     
     for i in range(7):
         if sortedClasses[i][1] > 0.015:
-            if i>0:
-                output = output + str(', ')
-            output = output + str(sortedClasses[i][0]) + str(' ') + str(round(100*sortedClasses[i][1])) + str('%')
+            #if i>0:
+                #output = output + str(', ')
+        
+            output = output + str('\n\r')+str(sortedClasses[i][0]) + str(' ') + str(round(100*sortedClasses[i][1])) + str('%')
         else:
             break
           
