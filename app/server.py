@@ -82,7 +82,7 @@ async def analyze(request):
     # Don't output more than 8 types, and stop when less than 2% rounded
     
     for i in range(7):
-        if sortedClasses[i][1] > 0.015:
+        if sortedClasses[i][1] > 0.045:
             if i>0:
                 output = output + str(', ')
                 
