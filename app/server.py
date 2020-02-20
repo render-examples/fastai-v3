@@ -85,10 +85,7 @@ async def analyze(request):
         if sortedClasses[i][1] > 0.015:
             if i>0:
                 output = output + str(', ')
-<<<<<<< HEAD
-=======
-        
->>>>>>> c0d3674d9342701c241995407c35a32ab64d38af
+                
             output = output + str(sortedClasses[i][0]) + str(' ') + str(round(100*sortedClasses[i][1])) + str('%')
         else:
             break
