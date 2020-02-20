@@ -20,9 +20,6 @@ classes = ['Altocumulus', 'Altocumulus Lenticularis', 'Altostratus', 'Cirrocumul
 =======
 
 classes = ['Altocumulus', 'Ac Lenticularis', 'Altostratus', 'Cirrocumulus', 'Cirrostratus', 'Cirrus', 'Cumulonimbus', 'Cumulus', 'Kelvin-Helmholtz', 'Mammatus', 'Nimbostratus', 'Stratocumulus', 'Stratus']
-<<<<<<< HEAD
->>>>>>> c0d3674d9342701c241995407c35a32ab64d38af
-=======
 >>>>>>> c0d3674d9342701c241995407c35a32ab64d38af
 path = Path(__file__).parent
 
@@ -91,10 +88,6 @@ async def analyze(request):
             if i>0:
                 output = output + str(', ')
 <<<<<<< HEAD
-<<<<<<< HEAD
-=======
-        
->>>>>>> c0d3674d9342701c241995407c35a32ab64d38af
 =======
         
 >>>>>>> c0d3674d9342701c241995407c35a32ab64d38af
