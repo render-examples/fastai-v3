@@ -9,7 +9,7 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://drive.google.com/uc?export=download&id=1J5ixrJSNr8S3Si8w2ojcTUlbnppToZCZ'
+export_file_url = 'https://www.googleapis.com/drive/v3/files/1J5ixrJSNr8S3Si8w2ojcTUlbnppToZCZ?alt=media&key=AIzaSyCsTmJzmYHVeT9S-wsBFzfa6i6QyO4CxUE'
 export_file_name = 'export.pkl'
 
 classes = ['lbj', 'lebron']
