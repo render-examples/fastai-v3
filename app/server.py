@@ -8,6 +8,7 @@ from starlette.applications import Starlette
 from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
+from pathlib import Path
 
 export_file_url = 'https://drive.google.com/uc?export=download&id=19ne4gn555OLl1pVLdqfaQXdCBIRvkC3h'
 export_file_name = 'export.pkl'
@@ -21,7 +22,8 @@ app.mount('/static', StaticFiles(directory='app/static'))
 
 
 async def download_file(url, dest):
-    if dest.exists(): return
+    if dest.exists():
+        return
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as response:
             data = await response.read()
