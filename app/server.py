@@ -9,10 +9,14 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://www.dropbox.com/s/6bgq8t6yextloqp/export.pkl?raw=1'
+# Original fastai bear classifier model file.
+# export_file_url = 'https://www.dropbox.com/s/6bgq8t6yextloqp/export.pkl?raw=1'
+
+# Get clock classification model file from google drive
+export_file_url = 'https://drive.google.com/file/d/1VKOS5e8q0fHdLkirMl87spNaGOjtubkb/view?usp=sharing'
 export_file_name = 'export.pkl'
 
-classes = ['black', 'grizzly', 'teddys']
+classes = ['analogue', 'digital']
 path = Path(__file__).parent
 
 app = Starlette()
