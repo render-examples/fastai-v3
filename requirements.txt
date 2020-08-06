@@ -3,7 +3,7 @@ aiohttp==3.6.2
 asyncio==3.4.3
 fastai==1.0.61
 torch==1.5.1
-torchvision==0.6.0a0+35d732a
+torchvision==0.6.0
 numpy==1.18.5
 pillow~=7.2.0
 python-multipart==0.0.5
