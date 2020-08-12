@@ -1,6 +1,8 @@
 import aiohttp
 import asyncio
 import uvicorn
+import os 
+import requests
 from fastai import *
 from fastai.vision import *
 from io import BytesIO
@@ -11,6 +13,8 @@ from starlette.staticfiles import StaticFiles
 
 export_file_url = 'https://www.dropbox.com/s/azoha55knyin8jg/export.pkl?dl=1'
 export_file_name = 'export.pkl'
+
+Port = int(os.environ.get('PORT', 50000))
 
 classes = ['social_dist', 'no_social_dist']
 path = Path(__file__).parent
@@ -66,4 +70,4 @@ async def analyze(request):
 
 if __name__ == '__main__':
     if 'serve' in sys.argv:
-        uvicorn.run(app=app, host='0.0.0.0', port=5000, log_level="info")
+        uvicorn.run(app=app, host='0.0.0.0', port=Port, log_level="info")
