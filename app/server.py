@@ -1,6 +1,8 @@
 import aiohttp
 import asyncio
 import uvicorn
+import os 
+import requests
 from fastai import *
 from fastai.vision import *
 from io import BytesIO
@@ -9,10 +11,12 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://www.dropbox.com/s/6bgq8t6yextloqp/export.pkl?raw=1'
+export_file_url = 'https://www.dropbox.com/s/2w5fwbf51ovz2aj/export.pkl?dl=1'
 export_file_name = 'export.pkl'
 
-classes = ['black', 'grizzly', 'teddys']
+Port = int(os.environ.get('PORT', 50000))
+
+classes = ['social dist', 'no social dist']
 path = Path(__file__).parent
 
 app = Starlette()
@@ -66,4 +70,4 @@ async def analyze(request):
 
 if __name__ == '__main__':
     if 'serve' in sys.argv:
-        uvicorn.run(app=app, host='0.0.0.0', port=5000, log_level="info")
+        uvicorn.run(app=app, host='0.0.0.0', port=Port, log_level="info")
