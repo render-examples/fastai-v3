@@ -11,7 +11,7 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://onedrive.live.com/download?cid=21879B529186CAC3&resid=21879B529186CAC3%21106&authkey=AJw6ap_M8WyIbug'
+export_file_url = 'https://www.dropbox.com/s/2w5fwbf51ovz2aj/export.pkl?dl=0'
 export_file_name = 'export.pkl'
 
 Port = int(os.environ.get('PORT', 50000))
