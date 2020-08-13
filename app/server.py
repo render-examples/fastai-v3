@@ -16,7 +16,7 @@ export_file_name = 'export.pkl'
 
 Port = int(os.environ.get('PORT', 50000))
 
-classes = ['social_dist', 'no_social_dist']
+classes = ['social dist', 'no social dist']
 path = Path(__file__).parent
 
 app = Starlette()
