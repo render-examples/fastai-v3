@@ -4,6 +4,7 @@ import uvicorn
 from fastai import *
 from fastai.vision import load_learner
 from io import BytesIO
+from pathlib import Path
 from starlette.applications import Starlette
 from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
