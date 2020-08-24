@@ -2,7 +2,7 @@ import aiohttp
 import asyncio
 import uvicorn
 from fastai import *
-from fastai.vision import load_learner
+from fastai.vision import *
 from io import BytesIO
 from pathlib import Path
 from starlette.applications import Starlette
