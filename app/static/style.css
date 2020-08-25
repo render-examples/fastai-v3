@@ -1,5 +1,5 @@
 body {
-    background-color: #fff;
+    background-color: rgb(77, 74, 74);
 }
 
 .no-display {
@@ -17,7 +17,7 @@ body {
     font-size: 30px;
     margin-top: 1em;
     margin-bottom: 1em;
-    color: #262626;
+    color: #43b643b6;
 }
 
 .content {
@@ -43,10 +43,10 @@ button.choose-file-button {
     width: 200px;
     height: 40px;
     border-radius: 2px;
-    background-color: #ffffff;
-    border: solid 1px #7052CB;
+    background-color: #69666669;
+    border: solid 1px rgb(0, 0, 0);
     font-size: 13px;
-    color: #7052CB;
+    color: #43b643b6;
 }
 
 button.analyze-button {
