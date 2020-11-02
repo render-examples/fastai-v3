@@ -105,7 +105,7 @@ async def analyze(request):
     predictions = sorted(predictions, key=lambda x: x["output"], reverse=True)
     predictions = predictions[0:2]
     #print({"class": str(pred_class), "predictions": predictions})
-    return JSONResponse({'result': str(prediction)})
+    return JSONResponse({'result': str(predictions)})
 
 
 if __name__ == '__main__':
