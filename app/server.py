@@ -91,6 +91,7 @@ async def analyze(request):
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
     pred_class, pred_idx, outputs = learn.predict(img) #[0]
+    prediction = learn.predict(img)[0]
     pred_probs = outputs/sum(outputs)
     pred_probs = pred_probs.tolist()
     predictions = []
@@ -103,8 +104,8 @@ async def analyze(request):
 
     predictions = sorted(predictions, key=lambda x: x["output"], reverse=True)
     predictions = predictions[0:2]
-    print({"class": str(pred_class), "predictions": predictions})
-    return JSONResponse({{"class": str(pred_class), "predictions": predictions}})
+    #print({"class": str(pred_class), "predictions": predictions})
+    return JSONResponse({'result': str(prediction)})
 
 
 if __name__ == '__main__':
