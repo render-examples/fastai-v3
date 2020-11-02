@@ -9,10 +9,13 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://drive.google.com/u/0/uc?export=download&confirm=W7Y1&id=1BSva5kuYeZVnsE8M_kwO0QSILdFIgbQC'
-export_file_name = 'export.pkl'
+export_file_url = 'https://drive.google.com/uc?export=download&id=1UsiVxAt91DzLt7q863Nj4vLF8nJjWwsL' #https://drive.google.com/u/0/uc?export=download&confirm=W7Y1&id=1BSva5kuYeZVnsE8M_kwO0QSILdFIgbQC
+export_file_name = 'export_ML_project.pkl'
 
-classes = ['AFRICAN FIREFINCH', 'ALBATROSS', 'ALEXANDRINE PARAKEET', 'AMERICAN AVOCET', 'AMERICAN BITTERN', 'AMERICAN COOT', 'AMERICAN GOLDFINCH',
+classes = ['NORMAL', 'PNEUMONIA']
+
+"""
+['AFRICAN FIREFINCH', 'ALBATROSS', 'ALEXANDRINE PARAKEET', 'AMERICAN AVOCET', 'AMERICAN BITTERN', 'AMERICAN COOT', 'AMERICAN GOLDFINCH',
            'AMERICAN KESTREL', 'AMERICAN PIPIT', 'AMERICAN REDSTART', 'ANHINGA', 'ANNAS HUMMINGBIRD', 'ANTBIRD', 'ARARIPE MANAKIN', 'ASIAN CRESTED IBIS',
            'BALD EAGLE', 'BALI STARLING', 'BALTIMORE ORIOLE', 'BANANAQUIT', 'BAR-TAILED GODWIT', 'BARN OWL', 'BARN SWALLOW', 'BARRED PUFFBIRD',
            'BAY-BREASTED WARBLER', 'BEARDED BARBET', 'BELTED KINGFISHER', 'BIRD OF PARADISE', 'BLACK FRANCOLIN', 'BLACK SKIMMER', 'BLACK SWAN',
@@ -40,6 +43,7 @@ classes = ['AFRICAN FIREFINCH', 'ALBATROSS', 'ALEXANDRINE PARAKEET', 'AMERICAN A
            'TIT MOUSE', 'TOUCHAN', 'TOWNSENDS WARBLER', 'TREE SWALLOW', 'TRUMPTER SWAN', 'TURKEY VULTURE', 'TURQUOISE MOTMOT', 'VARIED THRUSH',
            'VENEZUELIAN TROUPIAL', 'VERMILION FLYCATHER', 'VIOLET GREEN SWALLOW', 'WATTLED CURASSOW', 'WHIMBREL', 'WHITE CHEEKED TURACO',
            'WHITE NECKED RAVEN', 'WHITE TAILED TROPIC', 'WILD TURKEY', 'WILSONS BIRD OF PARADISE', 'WOOD DUCK', 'YELLOW CACIQUE', 'YELLOW HEADED BLACKBIRD']
+"""
 path = Path(__file__).parent
 
 app = Starlette()
@@ -57,6 +61,7 @@ async def download_file(url, dest):
 
 
 async def setup_learner():
+    await download_file(export_file_url, path / export_file_name)
     try:
         learn = load_learner(path / 'models', export_file_name)
         return learn
@@ -86,8 +91,20 @@ async def analyze(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
-    prediction = learn.predict(img)[0]
-    return JSONResponse({'result': str(prediction)})
+    pred_class, pred_idx, outputs = learn.predict(img) #[0]
+    pred_probs = outputs/sum(outputs)
+    pred_probs = pred_probs.tolist()
+    predictions = []
+    for image_class, output, prob in zip(learn.data.classes, outputs.tolist(), pred_probs):
+        output = round(output, 1)
+        prob = round(prob, 2)
+        predictions.append(
+            {"class": image_class.replace("_", " "), "output": output, "prob": prob}
+        )
+
+    predictions = sorted(predictions, key=lambda x: x["output"], reverse=True)
+    predictions = predictions[0:3]
+    return JSONResponse({{"class": str(pred_class), "predictions": predictions}})
 
 
 if __name__ == '__main__':
