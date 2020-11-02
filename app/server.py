@@ -1,7 +1,6 @@
 import aiohttp
 import asyncio
 import uvicorn
-from fastai import *
 from fastai.vision import *
 from io import BytesIO
 from starlette.applications import Starlette
@@ -103,7 +102,8 @@ async def analyze(request):
         )
 
     predictions = sorted(predictions, key=lambda x: x["output"], reverse=True)
-    predictions = predictions[0:3]
+    predictions = predictions[0:2]
+    print({"class": str(pred_class), "predictions": predictions})
     return JSONResponse({{"class": str(pred_class), "predictions": predictions}})
 
 
