@@ -85,7 +85,7 @@ async def homepage(request):
     return HTMLResponse(html_file.open().read())
 
 
-@app.route('/analyze_CNN', methods=['POST'])
+@app.route('/analyze', methods=['POST'])
 async def analyze_CNN(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
