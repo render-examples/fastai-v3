@@ -85,8 +85,31 @@ async def homepage(request):
     return HTMLResponse(html_file.open().read())
 
 
-@app.route('/analyze', methods=['POST'])
-async def analyze(request):
+@app.route('/analyze_CNN', methods=['POST'])
+async def analyze_CNN(request):
+    img_data = await request.form()
+    img_bytes = await (img_data['file'].read())
+    img = open_image(BytesIO(img_bytes))
+    pred_class, pred_idx, outputs = learn.predict(img) #[0]
+    prediction = learn.predict(img)[0]
+    pred_probs = outputs/sum(outputs)
+    pred_probs = pred_probs.tolist()
+    predictions = []
+    for image_class, output, prob in zip(learn.data.classes, outputs.tolist(), pred_probs):
+        output = round(output, 1)
+        prob = round(prob, 2)
+        predictions.append(
+            {"class": image_class.replace("_", " "), "output": output, "prob": prob}
+        )
+
+    predictions = sorted(predictions, key=lambda x: x["output"], reverse=True)
+    predictions = predictions[0:2]
+    #print({"class": str(pred_class), "predictions": predictions})
+    return JSONResponse({'result': str(predictions)})
+
+
+@app.route('/analyze_KNN', methods=['POST'])
+async def analyze_KNN(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
