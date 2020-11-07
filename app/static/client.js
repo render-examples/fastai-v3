@@ -40,7 +40,7 @@ function analyze_CNN() {
   xhr.send(fileData);
 }
 
-
+/*
 function analyze_KNN() {
   var uploadFiles = el("file-input").files;
   if (uploadFiles.length !== 1) alert("Please select a file to analyze!");
@@ -66,4 +66,4 @@ function analyze_KNN() {
   fileData.append("file", uploadFiles[0]);
   xhr.send(fileData);
 }
-
+*/

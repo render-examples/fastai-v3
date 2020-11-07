@@ -8,7 +8,7 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://drive.google.com/uc?export=download&id=1UsiVxAt91DzLt7q863Nj4vLF8nJjWwsL' #https://drive.google.com/u/0/uc?export=download&confirm=W7Y1&id=1BSva5kuYeZVnsE8M_kwO0QSILdFIgbQC
+export_file_url = 'https://drive.google.com/uc?export=download&id=1edXSYedC3AU5xdCWfaKxBCWgEec1RT9H' #https://drive.google.com/u/0/uc?export=download&confirm=W7Y1&id=1BSva5kuYeZVnsE8M_kwO0QSILdFIgbQC
 export_file_name = 'export_CNN.pkl'
 
 classes = ['NORMAL', 'PNEUMONIA']
@@ -107,7 +107,7 @@ async def analyze_CNN(request):
     #print({"class": str(pred_class), "predictions": predictions})
     return JSONResponse({'result': str(predictions)})
 
-
+"""
 @app.route('/analyze_KNN', methods=['POST'])
 async def analyze_KNN(request):
     img_data = await request.form()
@@ -129,7 +129,7 @@ async def analyze_KNN(request):
     predictions = predictions[0:2]
     #print({"class": str(pred_class), "predictions": predictions})
     return JSONResponse({'result': str(predictions)})
-
+"""
 
 if __name__ == '__main__':
     if 'serve' in sys.argv:
