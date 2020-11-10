@@ -52,7 +52,7 @@ app = Starlette()
 app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_headers=['X-Requested-With', 'Content-Type'])
 app.mount('/static', StaticFiles(directory='app/static'))
 
-
+"""
 async def download_file(url, dest):
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as response:
@@ -79,7 +79,7 @@ loop = asyncio.get_event_loop()
 tasks = [asyncio.ensure_future(setup_learner())]
 learn = loop.run_until_complete(asyncio.gather(*tasks))[0]
 loop.close()
-
+"""
 
 @app.route('/')
 async def homepage(request):
@@ -88,7 +88,7 @@ async def homepage(request):
 
 
 @app.route('/analyze_cnn', methods=['POST'])
-async def analyze(request):
+async def analyze_cnn(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
@@ -98,7 +98,7 @@ async def analyze(request):
     pred_probs = outputs/sum(outputs)
     pred_probs = pred_probs.tolist()
     predictions = []
-    for image_class, output, prob in zip(learn.data.classes, outputs.tolist(), pred_probs):
+    for image_class, output, prob in zip(learn2.data.classes, outputs.tolist(), pred_probs):
         output = round(output, 1)
         prob = round(prob, 2)
         predictions.append(
@@ -111,11 +111,12 @@ async def analyze(request):
     return JSONResponse({'result': str(predictions)})
 
 @app.route('/analyze_knn', methods=['POST'])
-async def analyze(request):
+async def analyze_knn(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
     img = np.array(img).reshape(1, -1)
+    learn = pickle.load(open(path / 'models/model.sav', 'rb'))
     output_class = learn.predict(img)[0]
 
     return JSONResponse({'result': str(output_class)})
