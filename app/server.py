@@ -92,7 +92,7 @@ async def analyze(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
-    learn = load_learner('models\\export.pkl')
+    learn = load_learner(path / 'models', export_file_name)
     pred_class, pred_idx, outputs = learn.predict(img) #[0]
     prediction = learn.predict(img)[0]
     pred_probs = outputs/sum(outputs)
