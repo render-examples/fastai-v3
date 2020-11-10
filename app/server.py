@@ -10,8 +10,9 @@ from starlette.staticfiles import StaticFiles
 
 ##rollback
 
-export_file_url = 'https://drive.google.com/uc?export=download&id=1edXSYedC3AU5xdCWfaKxBCWgEec1RT9H' #https://drive.google.com/u/0/uc?export=download&confirm=W7Y1&id=1BSva5kuYeZVnsE8M_kwO0QSILdFIgbQC
+export_file_url = 'https://drive.google.com/uc?export=download&id=1QVxKqLSZwYS42hEoVYztp1awvZX44ppC' #https://drive.google.com/u/0/uc?export=download&confirm=W7Y1&id=1BSva5kuYeZVnsE8M_kwO0QSILdFIgbQC
 export_file_name = 'export.pkl'
+export_file_name_2 = 'model.sav'
 
 classes = ['NORMAL', 'PNEUMONIA']
 
@@ -50,7 +51,7 @@ path = Path(__file__).parent
 app = Starlette()
 app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_headers=['X-Requested-With', 'Content-Type'])
 app.mount('/static', StaticFiles(directory='app/static'))
-"""
+
 
 async def download_file(url, dest):
     if dest.exists(): return
@@ -79,7 +80,7 @@ loop = asyncio.get_event_loop()
 tasks = [asyncio.ensure_future(setup_learner())]
 learn = loop.run_until_complete(asyncio.gather(*tasks))[0]
 loop.close()
-"""
+
 
 @app.route('/')
 async def homepage(request):
@@ -92,9 +93,9 @@ async def analyze(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
-    learn = load_learner(path / 'models', export_file_name)
-    pred_class, pred_idx, outputs = learn.predict(img) #[0]
-    prediction = learn.predict(img)[0]
+    learn2 = load_learner(path / 'models', export_file_name)
+    pred_class, pred_idx, outputs = learn2.predict(img) #[0]
+    prediction = learn2.predict(img)[0]
     pred_probs = outputs/sum(outputs)
     pred_probs = pred_probs.tolist()
     predictions = []
@@ -115,24 +116,10 @@ async def analyze(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
-    learn = load_learner('models\\export.pkl')
+    img = np.array(img).reshape(1, -1)
+    output_class = learn.predict(img)[0]
 
-    pred_class, pred_idx, outputs = learn.predict(img) #[0]
-    prediction = learn.predict(img)[0]
-    pred_probs = outputs/sum(outputs)
-    pred_probs = pred_probs.tolist()
-    predictions = []
-    for image_class, output, prob in zip(learn.data.classes, outputs.tolist(), pred_probs):
-        output = round(output, 1)
-        prob = round(prob, 2)
-        predictions.append(
-            {"class": image_class.replace("_", " "), "output": output, "prob": prob}
-        )
-
-    predictions = sorted(predictions, key=lambda x: x["output"], reverse=True)
-    predictions = predictions[0:2]
-    #print({"class": str(pred_class), "predictions": predictions})
-    return JSONResponse({'result': str(predictions)})
+    return JSONResponse({'result': str(output_class)})
 
 
 if __name__ == '__main__':
