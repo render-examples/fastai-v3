@@ -115,7 +115,9 @@ async def analyze_knn(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
-    img = np.array(img).reshape(1, -1)
+    img = img.resize((224, 224), Image.ANTIALIAS)
+    img = np.array(img)
+    img = img.reshape(1, 50176)
     learn = pickle.load(open(path / 'models/model.sav', 'rb'))
     output_class = learn.predict(img)[0]
 
