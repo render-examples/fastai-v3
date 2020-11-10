@@ -65,7 +65,7 @@ async def download_file(url, dest):
 async def setup_learner():
     await download_file(export_file_url, path / export_file_name)
     try:
-        learn = pickle.load(open(path / 'models/' + export_file_name_2, 'rb'))
+        learn = pickle.load(open((path / 'models/', export_file_name_2), 'rb'))
         return learn
     except RuntimeError as e:
         if len(e.args) > 0 and 'CPU-only machine' in e.args[0]:
