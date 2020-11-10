@@ -7,6 +7,7 @@ from starlette.applications import Starlette
 from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
+from PIL import Image as IM
 
 ##rollback
 
@@ -114,7 +115,7 @@ async def analyze_cnn(request):
 async def analyze_knn(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
-    img = open_image(BytesIO(img_bytes))
+    img = IM.open(BytesIO(img_bytes))
     img = img.resize((224, 224), Image.ANTIALIAS)
     img = np.array(img)
     img = img.reshape(1, 50176)
