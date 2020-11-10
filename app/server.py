@@ -50,7 +50,7 @@ path = Path(__file__).parent
 app = Starlette()
 app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_headers=['X-Requested-With', 'Content-Type'])
 app.mount('/static', StaticFiles(directory='app/static'))
-
+"""
 
 async def download_file(url, dest):
     if dest.exists(): return
@@ -79,7 +79,7 @@ loop = asyncio.get_event_loop()
 tasks = [asyncio.ensure_future(setup_learner())]
 learn = loop.run_until_complete(asyncio.gather(*tasks))[0]
 loop.close()
-
+"""
 
 @app.route('/')
 async def homepage(request):
@@ -92,6 +92,7 @@ async def analyze(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
+    learn = load_learner('models\\export.pkl')
     pred_class, pred_idx, outputs = learn.predict(img) #[0]
     prediction = learn.predict(img)[0]
     pred_probs = outputs/sum(outputs)
@@ -114,6 +115,8 @@ async def analyze(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
+    learn = load_learner('models\\export.pkl')
+
     pred_class, pred_idx, outputs = learn.predict(img) #[0]
     prediction = learn.predict(img)[0]
     pred_probs = outputs/sum(outputs)
