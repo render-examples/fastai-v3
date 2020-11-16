@@ -15,6 +15,7 @@ function showPicked(input) {
 }
 
 function analyze() { 
+  console.log("Hei Elise <3")
   var uploadFiles = el("file-input").files;
   if (uploadFiles.length !== 1) alert("Please select a file to analyze!");
 
