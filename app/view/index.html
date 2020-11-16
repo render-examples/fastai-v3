@@ -1,17 +1,40 @@
 <html lang='en'>
-<head>
+<head> 
+  <title>Pneumonia Classifier</title>
   <meta charset='utf-8'>
   <link rel='stylesheet' href='../static/style.css'>
   <script src='../static/client.js'></script>
 </head>
 <body>
-<div>
-  <div class='center'>
-    <div class='title'>Pneumonia Classifier</div>
-    <p>
-      Detection of pneumonia in chest X-rays
-    </p>
+  <!-- <div class='title'>
+   <h2>Pneumonia Classifier</h2> 
+  </div> --> 
+  <div class="topnav" id="myTopnav">
+    <div>
+      <a href="index.html" class="active">Home</a>
+      <!--<a href="resnet.html">ResNet Classifier</a>-->
+      <!--<a href="knn.html">kNN Classifier</a>-->
+      <a href="aboutp.html">About Pneumonia</a>
+      <!--<a href="https://stoppneumonia.org/pneumonia-silent-killer/?fbclid=IwAR3LY83-">About Pneumonia</a>-->
+      <a href="aboutus.html">About Us</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+       <i class="fa fa-bars">&#x2630;</i>
+      </a>
+    </div>
+
+  </div>
+<div class="page">
+<div class='center'>
+  <h1 class='title'>Pneumonia Classifier</h1>
+  <p class="ingress">Detection of pneumonia in chest X-rays. Throughout this project we found that CNN/ResNet50 gave an adequate result. 
+    Therefore we decided to only include this algorithm on this website. You can try the algorithm below by uploading an x-ray 
+    image of a chest and press the button "Analyze".</p>
+</div>
+
+
+<div class="resnet">
     <div class='content'>
+      <h2 class="undertitle"> Try our ResNet50-method</h2>
       <div class='no-display'>
         <input id='file-input'
                class='no-display'
@@ -21,11 +44,11 @@
                onchange='showPicked(this)'>
       </div>
       <button class='choose-file-button' type='button' onclick='showPicker()'>Select Image</button>
-      <div class='upload-label'>
-        <label id='upload-label'>No file chosen</label>
-      </div>
       <div>
         <img id='image-picked' class='no-display' alt='Chosen Image' height='200'>
+      </div>
+      <div class='upload-label'>
+        <label id='upload-label' class="center">No file chosen</label>
       </div>
       <div class='analyze'>
         <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Analyze</button>
@@ -34,7 +57,33 @@
         <label id='result-label'></label>
       </div>
     </div>
+</div>
+<!-- Modal for results -->
+
+<!-- Trigger/Open The Modal 
+<div class="modalButton">
+  <button id="myBtn" onclick="openModal()">Open Modal</button>
+</div> -->
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Results</h2>
+    </div>
+    <div class="modal-body">
+    <p>This patient most likely have: </p>
+      <p id="state">"get class from response"</p>
+     <p> with a <span id="percent">"get percent from response"</span> % security </p> 
+    </div>
   </div>
+  
+
+</div>
 </div>
 </body>
 </html>
