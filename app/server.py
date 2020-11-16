@@ -7,9 +7,13 @@ from starlette.applications import Starlette
 from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
+from PIL import Image as IM
 
-export_file_url = 'https://drive.google.com/uc?export=download&id=1UsiVxAt91DzLt7q863Nj4vLF8nJjWwsL' #https://drive.google.com/u/0/uc?export=download&confirm=W7Y1&id=1BSva5kuYeZVnsE8M_kwO0QSILdFIgbQC
-export_file_name = 'export_ML_project.pkl'
+##rollback
+
+export_file_url = 'https://drive.google.com/uc?export=download&id=1QVxKqLSZwYS42hEoVYztp1awvZX44ppC' #https://drive.google.com/u/0/uc?export=download&confirm=W7Y1&id=1BSva5kuYeZVnsE8M_kwO0QSILdFIgbQC
+export_file_name = 'export.pkl'
+export_file_name_2 = 'model.sav'
 
 classes = ['NORMAL', 'PNEUMONIA']
 
@@ -49,9 +53,8 @@ app = Starlette()
 app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_headers=['X-Requested-With', 'Content-Type'])
 app.mount('/static', StaticFiles(directory='app/static'))
 
-
+"""
 async def download_file(url, dest):
-    if dest.exists(): return
     async with aiohttp.ClientSession() as session:
         async with session.get(url) as response:
             data = await response.read()
@@ -60,9 +63,9 @@ async def download_file(url, dest):
 
 
 async def setup_learner():
-    await download_file(export_file_url, path / export_file_name)
+    await download_file(export_file_url, path / export_file_name_2)
     try:
-        learn = load_learner(path / 'models', export_file_name)
+        learn = pickle.load(open((path / 'models/model.sav'), 'rb'))
         return learn
     except RuntimeError as e:
         if len(e.args) > 0 and 'CPU-only machine' in e.args[0]:
@@ -77,25 +80,26 @@ loop = asyncio.get_event_loop()
 tasks = [asyncio.ensure_future(setup_learner())]
 learn = loop.run_until_complete(asyncio.gather(*tasks))[0]
 loop.close()
-
-
+"""
+#rool
 @app.route('/')
 async def homepage(request):
     html_file = path / 'view' / 'index.html'
     return HTMLResponse(html_file.open().read())
 
 
-@app.route('/analyze', methods=['POST'])
-async def analyze(request):
+@app.route('/analyze_cnn', methods=['POST'])
+async def analyze_cnn(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     img = open_image(BytesIO(img_bytes))
-    pred_class, pred_idx, outputs = learn.predict(img) #[0]
-    prediction = learn.predict(img)[0]
+    learn2 = load_learner(path / 'models', export_file_name)
+    pred_class, pred_idx, outputs = learn2.predict(img) #[0]
+    prediction = learn2.predict(img)[0]
     pred_probs = outputs/sum(outputs)
     pred_probs = pred_probs.tolist()
     predictions = []
-    for image_class, output, prob in zip(learn.data.classes, outputs.tolist(), pred_probs):
+    for image_class, output, prob in zip(learn2.data.classes, outputs.tolist(), pred_probs):
         output = round(output, 1)
         prob = round(prob, 2)
         predictions.append(
@@ -106,6 +110,19 @@ async def analyze(request):
     predictions = predictions[0:2]
     #print({"class": str(pred_class), "predictions": predictions})
     return JSONResponse({'result': str(predictions)})
+
+@app.route('/analyze_knn', methods=['POST'])
+async def analyze_knn(request):
+    img_data = await request.form()
+    img_bytes = await (img_data['file'].read())
+    img = IM.open(BytesIO(img_bytes))
+    img = img.resize((224, 224))
+    img = np.array(img)
+    img = img.reshape(1, 50176)
+    learn = pickle.load(open(path / 'models/model.sav', 'rb'))
+    output_class = learn.predict(img)[0]
+
+    return JSONResponse({'result': str(output_class)})
 
 
 if __name__ == '__main__':

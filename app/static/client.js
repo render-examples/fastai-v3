@@ -23,7 +23,7 @@ function analyze() {
 
   var xhr = new XMLHttpRequest();
   var loc = window.location;
-  xhr.open("POST", `${loc.protocol}//${loc.hostname}:${loc.port}/analyze`,
+  xhr.open("POST", `${loc.protocol}//${loc.hostname}:${loc.port}/analyze_cnn`,
     true);
   xhr.onerror = function() {
     alert(xhr.responseText);
@@ -41,6 +41,7 @@ function analyze() {
     }
     el("analyze-button").innerHTML = "Analyze";
   };
+
 
   var fileData = new FormData();
   fileData.append("file", uploadFiles[0]);
