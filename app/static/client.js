@@ -33,12 +33,13 @@ function analyze() {
     if (this.readyState === 4) {
       var response = JSON.parse(e.target.responseText);
       // var response = {"result":[{'class': 'PNEUMONIA', 'output': 0.9, 'prob': 0.93}, {'class': 'NORMAL', 'output': 0.1, 'prob': 0.07}]}
-      el("result-label").innerHTML = `Result = ${response["result"]}`;
+      var result = response["result"]
+      el("result-label").innerHTML = `Result = ${result}`;
       var modal = document.getElementById("myModal");
       modal.style.display = "block";
-      el("state").innerHTML = response["result"][0].class
+      el("state").innerHTML = `${result[0].class}`
       // state.innerHTML = response["result"][0].class
-      el("percent").innerHTML = response["result"][0].prob * 100
+      el("percent").innerHTML = result[0].prob * 100
     }
     el("analyze-button").innerHTML = "Analyze";
   };
