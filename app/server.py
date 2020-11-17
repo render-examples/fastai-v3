@@ -110,7 +110,7 @@ async def analyze_cnn(request):
     predictions = predictions[0:2]
     #print({"class": str(pred_class), "predictions": predictions})
     predictions = (predictions)[0]
-    return JSONResponse({'result': predictions})
+    return JSONResponse({'result': [str(predictions['class']), str(predictions['prob']*100)]})
 
 @app.route('/analyze_knn', methods=['POST'])
 async def analyze_knn(request):

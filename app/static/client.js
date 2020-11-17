@@ -37,9 +37,9 @@ function analyze() {
       el("result-label").innerHTML = `Result = ${result}`;
       var modal = document.getElementById("myModal");
       modal.style.display = "block";
-      el("state").innerHTML = `${result['class']}`
+      el("state").innerHTML = `${result[0]}`
       // state.innerHTML = response["result"][0].class
-      el("percent").innerHTML = result['prob'] * 100
+      el("percent").innerHTML = result[1]
     }
     el("analyze-button").innerHTML = "Analyze";
   };
