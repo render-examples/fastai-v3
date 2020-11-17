@@ -87,6 +87,17 @@ async def homepage(request):
     html_file = path / 'view' / 'index.html'
     return HTMLResponse(html_file.open().read())
 
+@app.route('/aboutus')
+async def homepage(request):
+    html_file = path / 'view' / 'aboutus.html'
+    return HTMLResponse(html_file.open().read())
+
+@app.route('/aboutp')
+async def homepage(request):
+    html_file = path / 'view' / 'aboutp.html'
+    return HTMLResponse(html_file.open().read())
+
+
 
 @app.route('/analyze_cnn', methods=['POST'])
 async def analyze_cnn(request):
