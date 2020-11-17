@@ -51,7 +51,7 @@ path = Path(__file__).parent
 
 app = Starlette()
 app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_headers=['X-Requested-With', 'Content-Type'])
-app.mount('/static', StaticFiles(directory='app/static'))
+app.mount('/static', StaticFiles(directory='static'))
 
 """
 async def download_file(url, dest):
@@ -109,7 +109,8 @@ async def analyze_cnn(request):
     predictions = sorted(predictions, key=lambda x: x["output"], reverse=True)
     predictions = predictions[0:2]
     #print({"class": str(pred_class), "predictions": predictions})
-    return JSONResponse({'result': str(predictions)})
+    predictions = (predictions)[0]
+    return JSONResponse({'result': predictions})
 
 @app.route('/analyze_knn', methods=['POST'])
 async def analyze_knn(request):

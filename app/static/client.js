@@ -37,9 +37,9 @@ function analyze() {
       el("result-label").innerHTML = `Result = ${result}`;
       var modal = document.getElementById("myModal");
       modal.style.display = "block";
-      el("state").innerHTML = `${result[0].class}`
+      el("state").innerHTML = `${result['class']}`
       // state.innerHTML = response["result"][0].class
-      el("percent").innerHTML = result[0].prob * 100
+      el("percent").innerHTML = result['prob'] * 100
     }
     el("analyze-button").innerHTML = "Analyze";
   };
@@ -86,7 +86,7 @@ function closeModal(){
 
 window.onclick = function(event) {
   var modal = document.getElementById("myModal");
-  if (event.target == modal) {
+  if (event.target === modal) {
     modal.style.display = "none";
   }
 }
