@@ -51,7 +51,7 @@ path = Path(__file__).parent
 
 app = Starlette()
 app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_headers=['X-Requested-With', 'Content-Type'])
-app.mount('/static', StaticFiles(directory='app/static'))
+app.mount('/static', StaticFiles(directory='static'))
 
 """
 async def download_file(url, dest):
@@ -97,7 +97,10 @@ async def homepage(request):
     html_file = path / 'view' / 'aboutp.html'
     return HTMLResponse(html_file.open().read())
 
-
+@app.route('/classifier')
+async def homepage(request):
+    html_file = path / 'view' / 'classifier.html'
+    return HTMLResponse(html_file.open().read())
 
 @app.route('/analyze_cnn', methods=['POST'])
 async def analyze_cnn(request):

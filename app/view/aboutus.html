@@ -6,9 +6,11 @@
         <script src='../static/client.js'></script>
     </head>
     <body>
-        <div class="topnav" id="myTopnav">
+
+        <div class="topnav" id="myTopnav" style="background-color: #9eddff">
             <a href="/">Home</a>
             <!--<a href="resnet.html">ResNet Classifier</a>-->
+            <a href="/classifier">Classifier</a>
             <!--<a href="knn.html">kNN Classifier</a>-->
             <a href="/aboutp/">About Pneumonia</a>
             <!--<a href="https://stoppneumonia.org/pneumonia-silent-killer/?fbclid=IwAR3LY83-">About Pneumonia</a>-->
@@ -17,20 +19,21 @@
               <i class="fa fa-bars">&#x2630;</i>
             </a>
         </div>
+
         <div class="page">
             <div class="center">
-                <h1 class="header">Group 16</h1>
+                <h1 class="header" style="color: black">Group 16</h1>
                 <div class="content">
-                    <p>This page is made as a part of a group project in the course TDT4173 Machine Learning at the Norwegian University of Science 
+                                        <img class="NTNU_pic" src="../static/grupo%20ml.png" alt="Group picture">
+
+                    <p style="color: black"><br><br><br>This page is made as a part of a group project in the course TDT4173 Machine Learning at the Norwegian University of Science
                         and Technology. In this project we have chosen to use two different machine learning methods to classify real medical 
-                        chest x-ray images into two groups: normal and abnormal. The images we used is of children with and without pneumonia. 
+                        chest x-ray images into two groups: normal <a class="links" href="https://www.ntnu.no/studier/mting">Study Program</a> and abnormal. The images we used is of children with and without pneumonia.
                         The data for this was collected from Kaggle.com. For our machine learning methods, we chose to use look further into Supervised 
                         Learning by using the residual neural network with 50 layers (ResNet50) and the k-nearest neighbours (kNN) algorithms. 
                         After training both algorithms the ResNet50 yielded an impressively 97,18% accuracy, while the kNN only accomplished 79.00%. 
                         Because of this, we decided that we would only use the ResNet50 algorithm on this website. 
                     </p>
-                    <!--<img class="CNN_pic" src="CNN_pic.png" alt="CNN example">-->
-                    <img class="NTNU_pic" src="../static/NTNU_logo.png" alt="NTNU logo">
                 </div>
             </div>
         </div>

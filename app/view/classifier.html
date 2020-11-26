@@ -1,0 +1,94 @@
+<html lang="en">
+<head>
+  <title>Pneumonia Classifier</title>
+  <meta charset='utf-8'>
+  <link rel='stylesheet' type="text/css" href='../static/style.css'>
+  <script src='../static/client.js'></script>
+  <title></title>
+</head>
+  <!-- <div class='title'>
+   <h2>Pneumonia Classifier</h2>
+  </div> -->
+  <div class="topnav" id="myTopnav" style="background-color: #9eddff">
+      <a href="/" >Home</a>
+      <a href="/classifier" class="active">Classifier</a>
+      <!--<a href="resnet.html">ResNet Classifier</a>-->
+      <!--<a href="knn.html">kNN Classifier</a>-->
+      <a href="/aboutp">About Pneumonia</a>
+      <!--<a href="https://stoppneumonia.org/pneumonia-silent-killer/?fbclid=IwAR3LY83-">About Pneumonia</a>-->
+      <a href="/aboutus">About Us</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+       <i class="fa fa-bars">&#x2630;</i>
+      </a>
+  </div>
+  <div class="page" style="background-image: url('https://wallpapercave.com/wp/wp6830287.gif');
+ background-size: cover; background-repeat: no-repeat; height: 100%" >
+<div class='center'>
+  <div class="content2">
+    <div class="text">
+        <h1 class='title' style="color: white"><br><br><br><br>Pneumonia Classifier</h1>
+
+  <p style="color: white">Detection of pneumonia in chest X-rays. Throughout this project we found that CNN/ResNet50 <br> gave an adequate result.
+    Therefore we decided to only include this algorithm on this website.<br> You can try the algorithm below by uploading an x-ray
+    image of a chest and press the button "Analyze".</p>
+    <div class="resnet">
+    <div class='content'>
+      <h2 class="undertitle" style="color: white"> Try our ResNet50-method</h2>
+      <div class='no-display'>
+        <input id='file-input'
+               class='no-display'
+               type='file'
+               name='file'
+               accept='image/*'
+               onchange='showPicked(this)'>
+      </div>
+      <button class='choose-file-button' type='button' onclick='showPicker()'>Select Image</button>
+      <div>
+        <img id='image-picked' class='no-display' alt='Chosen Image' height='200'>
+      </div>
+      <div class='upload-label'>
+        <label id='upload-label' class="center">No file chosen</label>
+      </div>
+      <div class='analyze'>
+        <button class="analyze-button" id="analyze-button" type='button' onclick='analyze()'>Analyze</button>
+      </div>
+      <div class='result-label'>
+        <label id='result-label'></label>
+      </div>
+    </div>
+</div>
+</div>
+    </div>
+
+
+
+
+<!-- Modal for results -->
+
+<!-- Trigger/Open The Modal
+<div class="modalButton">
+  <button id="myBtn" onclick="openModal()">Open Modal</button>
+</div> -->
+
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h2>Results</h2>
+    </div>
+    <div class="modal-body">
+    <p>This patient most likely have: </p>
+      <p id="state">"get class from response"</p>
+     <p> with a <span id="percent">"get percent from response"</span> % security </p>
+    </div>
+  </div>
+
+
+</div>
+</div>
+</div>
+</html>

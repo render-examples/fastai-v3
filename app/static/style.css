@@ -1,5 +1,5 @@
 body {
-    background-color: #E6E6FA;
+    background-color: white;
     margin: auto;
     border-bottom: 0;
     line-height: 150%;
@@ -9,9 +9,9 @@ body {
 /*Top navigation bar for the page*/
 .topnav {
     overflow: hidden;
-    background-color: white;
-    border-bottom: solid 1px#E6E6FA;
-    width: 92%;
+    background-color: powderblue;
+    border-bottom: solid 1px silver;
+    width: 100%;
     margin: auto;
     
   }
@@ -33,8 +33,8 @@ body {
   
   .topnav a.active {
     background-color: white;
-    border-bottom: solid 1px #7052CB;
-    color: #7052CB;
+    border-bottom: solid 1px white;
+    color: powderblue;
   }
   
   .topnav .icon {
@@ -72,11 +72,19 @@ body {
 h1 { 
     margin-top: 0;
 }
+p{
+    font-size: 20px;
+}
+
 .center {
     margin: auto;
     padding: 5px 50px;
     text-align: center;
     font-size: 15px;
+}
+
+.maintitle{
+    font-size: 45px;
 }
 
 .content {
@@ -87,12 +95,14 @@ h1 {
 }
 
 
+
 .page {
     background-color: white;
     align-items: center;
     margin: auto;
     min-height: 100%;
-    width: 92%;
+    width: 100%;
+
 }
 
 
@@ -120,6 +130,10 @@ h1 {
     margin-top: 2em;
 }
 
+.p{
+    color: white;
+}
+
 .upload-label {
     padding: 8px;
     font-size: 12px;
@@ -138,25 +152,30 @@ button.choose-file-button {
     height: 40px;
     border-radius: 2px;
     background-color: #ffffff;
-    border: solid 1px #7052CB;
+    border: solid 1px #9eddff;
     font-size: 13px;
-    color: #7052CB;
+    color: black;
     text-align: center;
 }
 
 button.analyze-button {
     width: 200px;
     height: 40px;
-    border: solid 1px #7052CB;
+    border: solid 1px #9eddff;
     border-radius: 2px;
-    background-color: #7052CB;
+    background-color: #9eddff;
     font-size: 13px;
-    color: #ffffff;
+    color: black;
     text-align: center;
 }
 
 button:focus {
     outline: 0;
+}
+
+.logo_pic{
+    width: 70%;
+    height: 40%;
 }
 
 
@@ -175,8 +194,8 @@ button:focus {
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    background-color: white; /* Fallback color */
+    background-color: white; /* Black w/ opacity */
   }
   
   /* Modal Content */
@@ -207,20 +226,20 @@ button:focus {
   }
   .modal-header {
     padding: 2px 16px;
-    background-color: #7052CB;
+    background-color: #9eddff;
     color: white;
   }
   
   .modal-body {padding: 2px 16px;}
 
   #state {
-      color: #7052CB;
+      color: red;
       font-size: 25px;
 
   }
 
   #percent {
-    color: #7052CB;
+    color: red;
   }
 
   /* Pneumonia page*/
@@ -244,12 +263,14 @@ button:focus {
     align-items: center;*/
   }
 
+
   .text {
     float: left;
     width: 50%;
     /*border: solid 1px white;*/
     margin-top: 2em;
     margin-left: 20px;
+      color: white;
     
     
     /*display: flex;
@@ -259,15 +280,16 @@ button:focus {
 
   .ingress {
       margin: auto;
-      font-size: 16px;
+      font-size: 20px;
       width: 90%;
+      color: white;
       padding-top: 1.5em;
       
   }
   .button3 {
-    background-color: #7052CB;
+    background-color: #9eddff;
     border: none;
-    color: white;
+    color: black;
     padding: 15px 15px;
     text-align: center;
     text-decoration: none;
@@ -282,8 +304,8 @@ button:focus {
 
   .NTNU_pic {
     padding-top: 5em;
-    width: 30%;
-    height: 30%;
+    width: 50%;
+    height: 50%;
     justify-content: center;
 } 
 
@@ -298,6 +320,17 @@ button:focus {
     }
     .picture {
         min-width: 100%;
+    }
+
+    .links{
+        background-color: black;
+        color: black;
+    }
+
+    links:hover{
+        background-color: #9eddff;
+        color: #9eddff;
+
     }
 
   /*.CNN_pic {

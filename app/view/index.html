@@ -1,17 +1,17 @@
-<html lang='en'>
+<html lang="en">
 <head> 
   <title>Pneumonia Classifier</title>
   <meta charset='utf-8'>
-  <link rel='stylesheet' href='../static/style.css'>
+  <link rel='stylesheet' type="text/css" href='../static/style.css'>
   <script src='../static/client.js'></script>
   <title></title>
 </head>
-<body>
   <!-- <div class='title'>
    <h2>Pneumonia Classifier</h2> 
   </div> --> 
-  <div class="topnav" id="myTopnav">
+  <div class="topnav" id="myTopnav" style="background-color: #9eddff">
       <a href="/" class="active">Home</a>
+      <a href="/classifier">Classifier</a>
       <!--<a href="resnet.html">ResNet Classifier</a>-->
       <!--<a href="knn.html">kNN Classifier</a>-->
       <a href="/aboutp">About Pneumonia</a>
@@ -21,41 +21,27 @@
        <i class="fa fa-bars">&#x2630;</i>
       </a>
   </div>
-<div class="page">
+  <div class="page" style="background-image: url('https://cutewallpaper.org/21/xray-backgrounds/X-Ray-Wallpaper-63+-images-.jpg');
+ background-size: cover; background-repeat: no-repeat; height: 100%" >
 <div class='center'>
-  <h1 class='title'>Pneumonia Classifier</h1>
-  <p class="ingress">Detection of pneumonia in chest X-rays. Throughout this project we found that CNN/ResNet50 gave an adequate result. 
-    Therefore we decided to only include this algorithm on this website. You can try the algorithm below by uploading an x-ray 
+  <div class="content2">
+
+    <div class="text">
+            <h1 class='maintitle' style="color: white"><br><br><br><br><br><br><br><br><br><br><br><br><br> </h1>
+                      <div class="content">
+                                        <img class="logo_pic" src="../static/logo2.png" alt="Group picture">
+                        </div>
+
+  <p style="color: white">Detection of pneumonia in chest X-rays. Throughout this project we found that CNN/ResNet50 <br> gave an adequate result.
+    Therefore we decided to only include this algorithm on this website.<br> You can try the algorithm below by uploading an x-ray
     image of a chest and press the button "Analyze".</p>
-</div>
+
+  </div>
+  </div>
 
 
-<div class="resnet">
-    <div class='content'>
-      <h2 class="undertitle"> Try our ResNet50-method</h2>
-      <div class='no-display'>
-        <input id='file-input'
-               class='no-display'
-               type='file'
-               name='file'
-               accept='image/*'
-               onchange='showPicked(this)'>
-      </div>
-      <button class='choose-file-button' type='button' onclick='showPicker()'>Select Image</button>
-      <div>
-        <img id='image-picked' class='no-display' alt='Chosen Image' height='200'>
-      </div>
-      <div class='upload-label'>
-        <label id='upload-label' class="center">No file chosen</label>
-      </div>
-      <div class='analyze'>
-        <button class="analyze-button" id="analyze-button" type='button' onclick='analyze()'>Analyze</button>
-      </div>
-      <div class='result-label'>
-        <label id='result-label'></label>
-      </div>
-    </div>
-</div>
+
+
 <!-- Modal for results -->
 
 <!-- Trigger/Open The Modal 
@@ -63,25 +49,8 @@
   <button id="myBtn" onclick="openModal()">Open Modal</button>
 </div> -->
 
-
-<!-- The Modal -->
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close" onclick="closeModal()">&times;</span>
-      <h2>Results</h2>
-    </div>
-    <div class="modal-body">
-    <p>This patient most likely have: </p>
-      <p id="state">"get class from response"</p>
-     <p> with a <span id="percent">"get percent from response"</span> % security </p> 
-    </div>
-  </div>
   
 
 </div>
 </div>
-</body>
 </html>
