@@ -10,7 +10,7 @@ from starlette.staticfiles import StaticFiles
 from PIL import Image as IM
 
 ##rollback
-
+##try
 export_file_url = 'https://drive.google.com/uc?export=download&id=1QVxKqLSZwYS42hEoVYztp1awvZX44ppC' #https://drive.google.com/u/0/uc?export=download&confirm=W7Y1&id=1BSva5kuYeZVnsE8M_kwO0QSILdFIgbQC
 export_file_name = 'export.pkl'
 export_file_name_2 = 'model.sav'
