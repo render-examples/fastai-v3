@@ -26,14 +26,13 @@
 <div class='center'>
   <div class="content2">
     <div class="text">
-        <h1 class='title' style="color: white"><br><br><br><br>Pneumonia Classifier</h1>
+        <h1 class='title' style="color: white; font-family: Calibri, serif"><br><br><br><br>Our Pneumonia Classifier - A Residual Neural Network</h1>
 
-  <p style="color: white">Detection of pneumonia in chest X-rays. Throughout this project we found that CNN/ResNet50 <br> gave an adequate result.
-    Therefore we decided to only include this algorithm on this website.<br> You can try the algorithm below by uploading an x-ray
-    image of a chest and press the button "Analyze".</p>
+  <p style="color: white"></p>
     <div class="resnet">
     <div class='content'>
-      <h2 class="undertitle" style="color: white"> Try our ResNet50-method</h2>
+      <p class="undertitle" style="color: white"> This model detects pneumonia in chest X-rays. You can try the model below by uploading an x-ray
+    image of a chest and press "Analyze".</p>
       <div class='no-display'>
         <input id='file-input'
                class='no-display'
@@ -47,7 +46,7 @@
         <img id='image-picked' class='no-display' alt='Chosen Image' height='200'>
       </div>
       <div class='upload-label'>
-        <label id='upload-label' class="center">No file chosen</label>
+        <label style="font-family: Calibri, serif" id='upload-label' class="center">No file chosen</label>
       </div>
       <div class='analyze'>
         <button class="analyze-button" id="analyze-button" type='button' onclick='analyze()'>Analyze</button>
@@ -83,7 +82,7 @@
     <div class="modal-body">
     <p>This patient most likely have: </p>
       <p id="state">"get class from response"</p>
-     <p> with a <span id="percent">"get percent from response"</span> % security </p>
+     <p> with a <span id="percent">"get percent from response"</span> % security. </p>
     </div>
   </div>
 
