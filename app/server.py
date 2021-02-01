@@ -9,8 +9,8 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://drive.google.com/uc?export=download&id=1QIbLP5c3Hwd5WyAKk8JOBUjc6mfOrYsL'
-#export_file_url = 'https://secure-web.cisco.com/174QUIBcNPtGWG8cunZ-4rk0BGU8xhEbuxBmdbDIb6pFzljxpwD8B5_T-W72G8k1c5ienRz5egv1Lvl6rkxme6qtiCzVKw23H5SaPZ2DZeKExa-bk9dgZ-h5WcvLy3lJ2JiKm8XNBrEEoDEj_xTiaP7uHmWbYiRw9AOtvnMGQQZYUhU3Tbr0H1rKD4D2UDJN17WQQb1eMSMLxEeUMdanWRVvxCF1FYOLW4Olm6qzzomlpcUCTG8ORuVLqwDOx7_z1JSZxTCFxjkBNKXUwvAv-Rb6Vg6JShd1idZc7KX74O8bldJeGWHKIWe0EaFnxAGZfuPIlVxpnYjVa3mC6kjtKm75bvXCzHp5kLbCzo1UWckg9Os2RiRPCL-Sa300YWt5ln4v4RtfOi-GoOeq87glOg8eL0-HNqmNTa2UMq6UB3XFPRuWDGzx9tSVRyTChbUoxEwQglZeGDPetmg-il3EJbw6F9qr5OXM4MnL8vNJbdRjn3GTdt48_0UuijsntUBW3yFs4KeXToWX0tqfQKpDTAQ/https%3A%2F%2Fwww.dropbox.com%2Fl%2Fscl%2FAACCW_Y_-ZT8PCDgqKTrucWMOuXOFlioEgc'
+export_file_url = 'https://www.dropbox.com/s/cmbwrkzourga8y3/KombuchaVision_1.22.21.pkl?dl=0'
+#export_file_url = 'https://drive.google.com/uc?export=download&id=1QIbLP5c3Hwd5WyAKk8JOBUjc6mfOrYsL'
 export_file_name = 'KombuchaVision_1.22.21.pkl'
 
 classes = ['Not Mold', 'Mold']
