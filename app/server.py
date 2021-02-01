@@ -13,7 +13,7 @@ export_file_url = 'https://www.dropbox.com/s/cmbwrkzourga8y3/KombuchaVision_1.22
 #export_file_url = 'https://drive.google.com/uc?export=download&id=1QIbLP5c3Hwd5WyAKk8JOBUjc6mfOrYsL'
 export_file_name = 'KombuchaVision_1.22.21.pkl'
 
-classes = ['Not Mold', 'Mold']
+classes = ['Mold', 'Not Mold']
 path = Path(__file__).parent
 
 app = Starlette()
