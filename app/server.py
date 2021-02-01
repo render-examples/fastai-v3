@@ -20,9 +20,9 @@ export_file_name = 'KombuchaVision_1.22.21.pkl'
 classes = ['Mold', 'Not Mold']
 path = Path(__file__).parent
 
-app = Starlette()
-app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_headers=['X-Requested-With', 'Content-Type'])
-app.mount('/static', StaticFiles(directory='app/static'))
+app1 = Starlette()
+app1.add_middleware(CORSMiddleware, allow_origins=['*'], allow_headers=['X-Requested-With', 'Content-Type'])
+app1.mount('/static', StaticFiles(directory='app/static'))
 
 
 async def download_file(url, dest):
@@ -54,13 +54,13 @@ learn = loop.run_until_complete(asyncio.gather(*tasks))[0]
 loop.close()
 
 
-@app.route('/')
+@app1.route('/')
 async def homepage(request):
     html_file = path / 'view' / 'index.html'
     return HTMLResponse(html_file.open().read())
 
 
-@app.route('/analyze', methods=['POST'])
+@app1.route('/analyze', methods=['POST'])
 async def analyze(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
@@ -71,4 +71,4 @@ async def analyze(request):
 
 if __name__ == '__main__':
     if 'serve' in sys.argv:
-        uvicorn.run(app=app, host='0.0.0.0', port=5000, log_level="info")
+        uvicorn.run(app=app1, host='0.0.0.0', port=5000, log_level="info")
