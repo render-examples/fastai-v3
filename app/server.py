@@ -4,6 +4,7 @@ import uvicorn
 from fastai import *
 from fastai.imports import *
 from fastai.vision import *
+from fastai.basic_train import load_learner
 from io import BytesIO
 from starlette.applications import Starlette
 from starlette.middleware.cors import CORSMiddleware
