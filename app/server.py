@@ -3,6 +3,10 @@ import asyncio
 import uvicorn
 from fastai import *
 from fastai.vision import *
+
+import fastbook
+from fastbook import *
+
 from io import BytesIO
 from starlette.applications import Starlette
 from starlette.middleware.cors import CORSMiddleware
