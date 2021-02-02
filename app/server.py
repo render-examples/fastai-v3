@@ -3,9 +3,6 @@ import asyncio
 import uvicorn
 from fastai import *
 from fastai.vision import *
-
-from fastai.learner import *
-
 from io import BytesIO
 from starlette.applications import Starlette
 from starlette.middleware.cors import CORSMiddleware
@@ -15,7 +12,7 @@ from starlette.staticfiles import StaticFiles
 export_file_url = 'https://www.dropbox.com/s/tjku1y86y0nsxcw/KombuchaVision_2.2.21.pkl?dl=1'
 export_file_name = 'export.pkl'
 
-classes = ['black', 'grizzly', 'teddys']
+classes = ['Not Mold', 'Mold']
 path = Path(__file__).parent
 
 app = Starlette()
