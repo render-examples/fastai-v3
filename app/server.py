@@ -20,6 +20,9 @@ export_file_name = 'final_model_export.pkl'
 
 classes = ['Mold', 'Not Mold']
 path = Path(__file__).parent
+path2 = Path(__file__).parent
+path2 = 'jocalzaretta/kombucha-mold-detection/app/final_model_export.pkl' 
+
 
 app = Starlette()
 app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_headers=['X-Requested-With', 'Content-Type'])
@@ -36,9 +39,9 @@ async def download_file(url, dest):
 
 
 async def setup_learner():
-    await download_file(export_file_url, 'jocalzaretta/kombucha-mold-detection/app/final_model_export.pkl')
+    await download_file(export_file_url, path2)
     try:
-        learn = load_learner('jocalzaretta/kombucha-mold-detection/app/final_model_export.pkl')
+        learn = load_learner(path2)
         return learn
     except RuntimeError as e:
         if len(e.args) > 0 and 'CPU-only machine' in e.args[0]:
