@@ -3,26 +3,17 @@ import asyncio
 import uvicorn
 from fastai import *
 from fastai.vision import *
-
-import fastbook
-from fastbook import *
-
 from io import BytesIO
 from starlette.applications import Starlette
 from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-#export_file_url = 'https://www.dropbox.com/s/tjku1y86y0nsxcw/KombuchaVision_2.2.21.pkl?dl=1'
-export_file_url = 'https://www.dropbox.com/s/naiat79xjn6zafj/final_model_export.pkl?dl=1'
-#export_file_name = 'KombuchaVision_2.2.21.pkl'
-export_file_name = 'final_model_export.pkl'
+export_file_url = 'https://www.dropbox.com/s/6bgq8t6yextloqp/export.pkl?raw=1'
+export_file_name = 'export.pkl'
 
-classes = ['Mold', 'Not Mold']
+classes = ['black', 'grizzly', 'teddys']
 path = Path(__file__).parent
-path2 = Path(__file__).parent
-path2 = 'jocalzaretta/kombucha-mold-detection/app/final_model_export.pkl' 
-
 
 app = Starlette()
 app.add_middleware(CORSMiddleware, allow_origins=['*'], allow_headers=['X-Requested-With', 'Content-Type'])
@@ -39,9 +30,9 @@ async def download_file(url, dest):
 
 
 async def setup_learner():
-    await download_file(export_file_url, path2)
+    await download_file(export_file_url, path / export_file_name)
     try:
-        learn = load_learner(path2)
+        learn = load_learner(path, export_file_name)
         return learn
     except RuntimeError as e:
         if len(e.args) > 0 and 'CPU-only machine' in e.args[0]:
