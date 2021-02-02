@@ -13,8 +13,10 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://www.dropbox.com/s/tjku1y86y0nsxcw/KombuchaVision_2.2.21.pkl?dl=1'
-export_file_name = 'KombuchaVision_2.2.21.pkl'
+#export_file_url = 'https://www.dropbox.com/s/tjku1y86y0nsxcw/KombuchaVision_2.2.21.pkl?dl=1'
+export_file_url = 'https://www.dropbox.com/s/naiat79xjn6zafj/final_model_export.pkl?dl=1'
+#export_file_name = 'KombuchaVision_2.2.21.pkl'
+export_file_name = 'final_model_export.pkl'
 
 classes = ['Mold', 'Not Mold']
 path = Path(__file__).parent
