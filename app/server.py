@@ -9,10 +9,10 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import HTMLResponse, JSONResponse
 from starlette.staticfiles import StaticFiles
 
-export_file_url = 'https://www.dropbox.com/s/l7r70pbp772h3z9/final_model_export.pkl?dl=1'
+export_file_url = 'https://www.dropbox.com/s/6bgq8t6yextloqp/export.pkl?raw=1'
 export_file_name = 'export.pkl'
 
-classes = ['High', 'Medium', 'Low']
+classes = ['black', 'grizzly', 'teddys']
 path = Path(__file__).parent
 
 app = Starlette()
@@ -51,7 +51,7 @@ loop.close()
 
 @app.route('/')
 async def homepage(request):
-    html_file = path/ 'index.html'
+    html_file = path / 'view' / 'index.html'
     return HTMLResponse(html_file.open().read())
 
 
