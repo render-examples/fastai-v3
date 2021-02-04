@@ -13,7 +13,7 @@ from starlette.staticfiles import StaticFiles
 export_file_url = 'https://www.dropbox.com/s/pwu7pztq2e55era/KombuchaVision_2.4.21.pkl?dl=1'
 export_file_name = 'export.pkl'
 
-classes = ['black', 'grizzly', 'teddys']
+classes = ['Mold', 'Not Mold']
 path = Path(__file__).parent
 
 app = Starlette()
