@@ -6,8 +6,8 @@ from fastai.vision import *
 
 
 #I needed to add these imports in order to avoid the below error (Path not defined)
-import fastbook
-from fastbook import *
+#import fastbook
+#from fastbook import *
 from fastai.vision.widgets import *
 
 # RUN python app/server.py
