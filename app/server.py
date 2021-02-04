@@ -4,6 +4,16 @@ import uvicorn
 from fastai import *
 from fastai.vision import *
 
+import fastbook
+from fastbook import *
+from fastai.vision.widgets import *
+
+# RUN python app/server.py
+# Feb 4 10:01:31 AM  #10 0.464 Traceback (most recent call last):
+# Feb 4 10:01:31 AM  #10 0.464   File "app/server.py", line 17, in <module>
+# Feb 4 10:01:31 AM  #10 0.464     path = Path(__file__).parent
+# Feb 4 10:01:31 AM  #10 0.464 NameError: name 'Path' is not defined
+
 from io import BytesIO
 from starlette.applications import Starlette
 from starlette.middleware.cors import CORSMiddleware
