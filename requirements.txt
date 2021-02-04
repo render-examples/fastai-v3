@@ -13,3 +13,4 @@ python-multipart==0.0.5
 starlette==0.13.6
 uvicorn==0.11.7
 fastcore==1.0.11
+graphviz==0.14.1
