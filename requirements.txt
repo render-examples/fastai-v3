@@ -1,7 +1,5 @@
 fastai==0.7.0
--f https://download.pytorch.org/whl/torch_stable.html 
 torch
--f https://download.pytorch.org/whl/torch_stable.html
 torchvision
 
 aiofiles==0.5.0
