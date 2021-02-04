@@ -3,9 +3,9 @@ import asyncio
 import uvicorn
 from fastai import *
 from fastai.vision import *
-
-# from fastai.vision.all import *
-# from fastai.vision.widgets import *
+from fastbook import *
+from fastai.vision.all import *
+from fastai.vision.widgets import *
 
 from io import BytesIO
 from starlette.applications import Starlette
