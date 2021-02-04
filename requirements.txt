@@ -1,7 +1,8 @@
 -f https://download.pytorch.org/whl/torch_stable.html 
-torch==1.7.1+cpu 
+torch==1.6.0+cpu 
 -f https://download.pytorch.org/whl/torch_stable.html
-torchvision==0.8.2+cpu
+torchvision==0.7.0+cpu
+
 
 fastbook==0.0.12
 
