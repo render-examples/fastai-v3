@@ -4,8 +4,8 @@ import uvicorn
 from fastai import *
 from fastai.vision import *
 
-from fastai.vision.all import *
-from fastai.vision.widgets import *
+# from fastai.vision.all import *
+# from fastai.vision.widgets import *
 
 from io import BytesIO
 from starlette.applications import Starlette
@@ -17,7 +17,7 @@ from starlette.staticfiles import StaticFiles
 export_file_url = 'https://www.dropbox.com/s/pwu7pztq2e55era/KombuchaVision_2.4.21.pkl?dl=1'
 export_file_name = 'export.pkl'
 
-classes = ['Not Mold', 'Mold']
+classes = ['Mold', 'Not Mold']
 path = Path(__file__).parent
 
 app = Starlette()
