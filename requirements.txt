@@ -1,11 +1,16 @@
+-f https://download.pytorch.org/whl/torch_stable.html 
+torch==1.7.1+cpu 
+-f https://download.pytorch.org/whl/torch_stable.html
+torchvision==0.8.2+cpu
 aiofiles==0.5.0
 aiohttp==3.6.2
 asyncio==3.4.3
-fastai==1.0.61
-torch==1.6.0
-torchvision==0.7.0
-numpy==1.19.0
-pillow~=7.2
+fastai==2.0.11
+fastbook==0.0.12
+numpy==1.19.1
+pillow==7.2.0
 python-multipart==0.0.5
 starlette==0.13.6
 uvicorn==0.11.7
+fastcore==1.0.11
+
