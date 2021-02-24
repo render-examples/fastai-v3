@@ -138,45 +138,6 @@
 		</div>
    </section>
    
-	
-   <div class="site-section" id="judge-section">
-      <div class="container">
-        <div class="row mb-3 justify-content-center text-center"  data-aos="fade-up">
-          <div class="col-8 text-center  mb-3">
-            <h2 class="section-title">Judge</h2>
-            <p class="lead">Based on the cover image, predict the popularity (high, medium, or low) of your book</p>
-          </div>
-        </div>
-
-        <div class="row mb-2 justify-content-center text-center"  data-aos="fade-up">
-          <div class="col-7 text-center  mb-5">
-            <div class='content'>
-              <div class='no-display'>
-                <input id='file-input'
-                       class='no-display'
-                       type='file'
-                       name='file'
-                       accept='image/*'
-                       onchange='showPicked(this)'>
-              </div>
-              <button class='choose-file-button' type='button' onclick='showPicker()'>Select Image</button>
-              <div class='upload-label'>
-                <label id='upload-label'>No file chosen</label>
-              </div>
-              <div>
-                <img id='image-picked' class='no-display' alt='Chosen Image' height='300'>
-              </div>
-              <div class='analyze mb-2'>
-                <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Analyze</button>
-              </div>
-              <div class='result-label'>
-                <strong><h3 id='result-label' style="color:black"></h3></strong>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 	  
   <script src="static/js/jquery-3.3.1.min.js"></script>
   <script src="static/js/jquery-ui.js"></script>
