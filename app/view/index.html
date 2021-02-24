@@ -1,40 +1,86 @@
+<!DOCTYPE html>
 <html lang='en'>
-<head>
-  <meta charset='utf-8'>
-  <link rel='stylesheet' href='../static/style.css'>
-  <script src='../static/client.js'></script>
-</head>
-<body>
-<div>
-  <div class='center'>
-    <div class='title'>Classify Your Kombucha Brew!</div>
-    <p>
-      Upload a picture of your Kombucha brew to determine if your SCOBY is <strong>heatlhy</strong> or if it has <strong>mold</strong>
-    </p>
-    <div class='content'>
-      <div class='no-display'>
-        <input id='file-input'
-               class='no-display'
-               type='file'
-               name='file'
-               accept='image/*'
-               onchange='showPicked(this)'>
+  
+  <!-- start header here -->
+  <head>
+    <meta charset='utf-8'>
+    <link rel='stylesheet' href='../static/style.css'>
+    <script src='../static/client.js'></script>
+  </head>
+  <!-- end of header -->
+  
+  <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+  
+  <div class="site-wrap"  id="home-section">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
       </div>
-      <button class='choose-file-button' type='button' onclick='showPicker()'>Select Image</button>
-      <div class='upload-label'>
-        <label id='upload-label'>No file chosen</label>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+
+      <div class="container">
+        <div class="row align-items-center">
+
+          <div class="col-6 col-md-6 col-xl-4  d-block">
+            <h4 class="mb-0 site-logo"><a href="#home-section" class="text-black h4 mb-0">kombucha-mold-detector<span class="text-primary">.</span> </a></h4>
+          </div>
+
+          <div class="col-12 col-md-6 col-xl-8 main-menu">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+
+              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block ml-0 pl-0">
+                <li><a href="#home-section" class="nav-link">Home</a></li>
+                <li><a href="#classify-section" class="nav-link">Judge</a></li>
+                <li><a href="#methodology-section" class="nav-link">Methodology</a></li>
+                <li><a href="#about-section" class="nav-link">About Me</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="col-6 col-md-6 d-inline-block d-lg-none ml-md-0" ><a href="#" class="site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a></div>
+        </div>
       </div>
-      <div>
-        <img id='image-picked' class='no-display' alt='Chosen Image' height='200'>
-      </div>
-      <div class='analyze'>
-        <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Analyze</button>
-      </div>
-      <div class='result-label'>
-        <label id='result-label'></label>
+   </header>
+    
+    
+  
+  <body>
+  <div>
+    <div class='center'>
+      <div class='title'>Classify Your Kombucha Brew!</div>
+      <p>
+        Upload a picture of your Kombucha brew to determine if your SCOBY is <strong>heatlhy</strong> or if it has <strong>mold</strong>
+      </p>
+      <div class='content'>
+        <div class='no-display'>
+          <input id='file-input'
+                 class='no-display'
+                 type='file'
+                 name='file'
+                 accept='image/*'
+                 onchange='showPicked(this)'>
+        </div>
+        <button class='choose-file-button' type='button' onclick='showPicker()'>Select Image</button>
+        <div class='upload-label'>
+          <label id='upload-label'>No file chosen</label>
+        </div>
+        <div>
+          <img id='image-picked' class='no-display' alt='Chosen Image' height='200'>
+        </div>
+        <div class='analyze'>
+          <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Analyze</button>
+        </div>
+        <div class='result-label'>
+          <label id='result-label'></label>
+        </div>
       </div>
     </div>
   </div>
-</div>
-</body>
+  </body>
 </html>
