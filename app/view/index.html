@@ -55,15 +55,13 @@
     
     
   <!-- Image Section -->
-  <section id="home" class="video-hero" style="height: 350px; background-image: url(static/cover_brew2.jpg);  background-size:cover; background-position: center center;background-attachment:fixed;" data-section="home">
+  <section id="home" class="video-hero" style="height: 600px; background-image: url(static/cover_brew2.jpg);  background-size:cover; background-position: center center;background-attachment:fixed;" data-section="home">
 	<div class="overlay"></div>
 		<div class="display-t text-center">
 			<div class="display-tc">
 				<div class="container">
 					<div class="col-md-12 col-md-offset-0 mt-3">
 						<div class="animate-box">
-							<h1 style="color:black"><strong>Worried about mold in your Kombucha SCOBY? </strong></h1>
-                					<h4 class="mt-8" style="color:black"> Upload a picture of your Kombucha brew to determine if your SCOBY is <strong>healthy</strong> or if it has <strong>mold</strong>!</h4>
 							<div class="mouse">
 								<a class="mouse-icon">
 							<div class="mouse-wheel">
@@ -115,37 +113,4 @@
     
     
   
-  <body>
-  <div>
-    <div class='center'>
-      <div class='title'>Classify Your Kombucha Brew!</div>
-      <p>
-        Upload a picture of your Kombucha brew to determine if your SCOBY is <strong>healthy</strong> or if it has <strong>mold</strong>
-      </p>
-      <div class='content'>
-        <div class='no-display'>
-          <input id='file-input'
-                 class='no-display'
-                 type='file'
-                 name='file'
-                 accept='image/*'
-                 onchange='showPicked(this)'>
-        </div>
-        <button class='choose-file-button' type='button' onclick='showPicker()'>Select Image</button>
-        <div class='upload-label'>
-          <label id='upload-label'>No file chosen</label>
-        </div>
-        <div>
-          <img id='image-picked' class='no-display' alt='Chosen Image' height='200'>
-        </div>
-        <div class='analyze'>
-          <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Analyze</button>
-        </div>
-        <div class='result-label'>
-          <label id='result-label'></label>
-        </div>
-      </div>
-    </div>
-  </div>
-  </body>
 </html>
