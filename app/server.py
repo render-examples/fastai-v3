@@ -64,7 +64,7 @@ async def analyze(request):
     img_bytes = await (img_data['file'].read())
     #img = open_image(BytesIO(img_bytes))
     img = PILImage.create(BytesIO(img_bytes))
-    prediction = learn.predict(img)[1]
+    prediction = learn.predict(img)[0]
     prob = learn.predict(img)[1]
     return JSONResponse({'result': str(prediction), 'probability': str(prob)})
 
