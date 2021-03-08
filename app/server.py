@@ -58,15 +58,19 @@ async def homepage(request):
     html_file = path / 'view' / 'index.html'
     return HTMLResponse(html_file.open().read())
 
+#Testing print statement
+from flask import Flask, request, jsonify
+
 @app.route('/analyze', methods=['POST'])
 async def analyze(request):
     img_data = await request.form()
     img_bytes = await (img_data['file'].read())
     #img = open_image(BytesIO(img_bytes))
     img = PILImage.create(BytesIO(img_bytes))
-    prediction = learn.predict(img)[0]
-    prob = learn.predict(img)[1]
-    return JSONResponse({'result': str(prediction), 'probability': str(prob)})
+    prediction = learn.predict(img)[2].numpy()
+    prob = learn.predict(img)[2].numpy()
+    return jsonify({'result': str(prediction), 'probability': str(prob)})
+    #return JSONResponse({'result': str(prediction), 'probability': str(prob)})
 
 
 if __name__ == '__main__':
