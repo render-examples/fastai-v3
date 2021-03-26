@@ -1,41 +1,58 @@
-<html lang='en'>
-<head>
+<html lang="en">
+<head> 
+  <title>Pneumonia Classifier</title>
   <meta charset='utf-8'>
-  <link rel='stylesheet' href='../static/style.css'>
+  <link rel='stylesheet' type="text/css" href='../static/style.css'>
   <script src='../static/client.js'></script>
+  <title></title>
 </head>
-<body>
-<div>
-  <div class='center'>
-    <div class='title'>Classify Bear Images 🐻</div>
-    <p>
-      Use images of <strong>teddy</strong> bears, <strong>black</strong> bears, <strong>grizzly</strong> bears, or
-      all three!
-    </p>
-    <div class='content'>
-      <div class='no-display'>
-        <input id='file-input'
-               class='no-display'
-               type='file'
-               name='file'
-               accept='image/*'
-               onchange='showPicked(this)'>
-      </div>
-      <button class='choose-file-button' type='button' onclick='showPicker()'>Select Image</button>
-      <div class='upload-label'>
-        <label id='upload-label'>No file chosen</label>
-      </div>
-      <div>
-        <img id='image-picked' class='no-display' alt='Chosen Image' height='200'>
-      </div>
-      <div class='analyze'>
-        <button id='analyze-button' class='analyze-button' type='button' onclick='analyze()'>Analyze</button>
-      </div>
-      <div class='result-label'>
-        <label id='result-label'></label>
-      </div>
-    </div>
+  <!-- <div class='title'>
+   <h2>Pneumonia Classifier</h2> 
+  </div> --> 
+  <div class="topnav" id="myTopnav" style="background-color: #9eddff">
+      <a href="/" class="active">Home</a>
+      <a href="/classifier">Classifier</a>
+      <!--<a href="resnet.html">ResNet Classifier</a>-->
+      <!--<a href="knn.html">kNN Classifier</a>-->
+      <a href="/aboutp">About Pneumonia</a>
+      <!--<a href="https://stoppneumonia.org/pneumonia-silent-killer/?fbclid=IwAR3LY83-">About Pneumonia</a>-->
+      <a href="/aboutus">About Us</a>
+      <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+       <i class="fa fa-bars">&#x2630;</i>
+      </a>
   </div>
+
+  <div class="page" style="background-image: url('https://wallpapercave.com/wp/wp6830287.gif');
+ background-size: cover; background-repeat: no-repeat; height: 100%" >
+<div class='center'>
+  <div class="content2">
+
+    <div class="text">
+            <h1 class='maintitle' style="color: white"><br><br><br><br><br><br> </h1>
+                      <div class="content">
+                                        <img class="logo_pic" src="../static/logo3.png" alt="Group picture">
+                        </div>
+
+  <p style="color: white; font-family: Calibri, serif">  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      What if already busy doctors did not have to analyze your x-rays in order <br> to diagnose you, but a machine did it instead?
+    How you say?<br><br> Well, if doctors can learn how to read x-rays, then why should not machines<br> be able to learn it too.<br><br>
+    We have developed and trained a machine<br> learning model to do just that,  and you can test it out on your x-rays <br>by navigating to the Classifier-page.
+
+  </div>
+  </div>
+
+
+
+
+<!-- Modal for results -->
+
+<!-- Trigger/Open The Modal 
+<div class="modalButton">
+  <button id="myBtn" onclick="openModal()">Open Modal</button>
+</div> -->
+
+  
+
 </div>
-</body>
+</div>
 </html>
